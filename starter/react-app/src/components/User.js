@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+// import { useParams } from 'react-router-dom';
 
 function User() {
-  const [user, setUser] = useState({});
-  const { userId }  = useParams();
+  const user = useSelector(state => state.session.user)
 
-  useEffect(() => {
-    if (!userId) {
-      return;
-    }
-    (async () => {
-      const response = await fetch(`/api/users/${userId}`);
-      const user = await response.json();
-      setUser(user);
-    })();
-  }, [userId]);
+  // useEffect(() => {
+  //   if (!user) {
+  //     return;
+  //   }
+  //   (async () => {
+  //     const response = await fetch(`/api/users/${user.id}`);
+  //     const userr = await response.json();
+  //     setUser(userr);
+  //   })();
+  // }, [userId]);
 
   if (!user) {
     return null;
@@ -23,7 +23,7 @@ function User() {
   return (
     <ul>
       <li>
-        <strong>User Id</strong> {userId}
+        <strong>User Id</strong> {user.id}
       </li>
       <li>
         <strong>Username</strong> {user.username}
