@@ -9,17 +9,9 @@ function User() {
   }
 
   return (
-    <ul>
-      <li>
-        <strong>User Id</strong> {user.id}
-      </li>
-      <li>
-        <strong>Username</strong> {user.username}
-      </li>
-      <li>
-        <strong>Email</strong> {user.email}
-      </li>
-    </ul>
+    <div>
+      <h1>Welcome {user.name} {user.profilePic} {user.additionalDetails} {user.geolocation}</h1>
+    </div>
   );
 }
 export default User;
