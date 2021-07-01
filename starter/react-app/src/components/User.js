@@ -10,7 +10,9 @@ function User() {
 
   return (
     <div>
-      <h1>Welcome {user.name} {user.profilePic} {user.additionalDetails} {user.geolocation}</h1>
+      <h1>Welcome {user.name} {user.allergies.map(ale => ( 
+        <h3>{ale.name}</h3>
+       ))}</h1>
     </div>
   );
 }

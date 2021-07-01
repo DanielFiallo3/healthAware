@@ -3,7 +3,8 @@ from wtforms import StringField, SelectField
 from wtforms.validators import DataRequired, Email, ValidationError
 from app.models import User
 
-symptoms = [("Cough", "Fever", "Chills", "Skin Rash", "Shortness of Breath", "Nauseated", "Chronic Pain")]
+symptoms = ["Cough", "Fever", "Chills", "Skin_Rash", "Shortness_of_Breath", "Nauseated", "Chronic_Pain"]
+options = ["Non_threatning", "Mild", "Moderate", "Severe", "Life_threatening"]
 
 def user_exists(form, field):
     # Checking if user exists
@@ -31,3 +32,5 @@ class SignUpForm(FlaskForm):
     currentSymptoms = SelectField('currentSymptoms', choices=symptoms)
     geolocation = StringField('geolocation')
     password = StringField('password', validators=[DataRequired()])
+    allergies = StringField('allergies')
+    severity = SelectField('severity', choices=options)

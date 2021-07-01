@@ -59,6 +59,10 @@ def sign_up():
     """
     Creates a new user and logs them in
     """
+    # print(request.json['severity'])
+    # print(request.json['currentSymptoms'])
+
+
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
@@ -71,8 +75,10 @@ def sign_up():
             additionalDetails= form.data['additionalDetails'],
             currentSymptoms= form.data['currentSymptoms'],
             geolocation= form.data['geolocation'],
-            password=form.data['password']
+            password=form.data['password'],
         )
+        if form.data['allergies'] != "Select":
+            user.allergies = [(form.data['allergies'], form.data['severity'])]
         db.session.add(user)
         db.session.commit()
         login_user(user)

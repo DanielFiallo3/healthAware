@@ -15,6 +15,8 @@ const SignUpForm = () => {
   const [additionalDetails, setAdditionalDetails] = useState('');
   const [currentSymptoms, setCurrentSymptoms] = useState('Select Symptom');
   const [geolocation, setGeolocation] = useState('');
+  const [allergies, setAllergies] = useState('Select');
+  const [severity, setSeverity] = useState('');
   
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
@@ -22,7 +24,7 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, name, email, password, profilePic, vaccinationCard, additionalDetails, currentSymptoms, geolocation));
+      const data = await dispatch(signUp(username, name, email, password, profilePic, allergies, severity, vaccinationCard, additionalDetails, currentSymptoms, geolocation));
       if (data) {
         setErrors(data)
       }
@@ -66,6 +68,14 @@ const SignUpForm = () => {
 
   const updateGeolocation = (e) => {
     setGeolocation(e.target.value);
+  };
+
+  const updateAllergies = (e) => {
+    setAllergies(e.target.value);
+  };
+
+  const updateSeverity = (e) => {
+    setSeverity(e.target.value);
   };
 
 
@@ -136,6 +146,31 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
+        <label>Allergies</label>
+        <select
+          placeholder="Please Select"
+          name='allergies'
+          onChange={updateAllergies}
+          value={allergies}>
+          {["Select", "Peanuts", "Animal Dander", "Gluten", "Shellfish", "Dairy", "Pollen/Dust/Mold", "Other"].map(each => (
+            <option value={each}>{each} </option>
+          ))}
+        </select>
+      </div>
+      {allergies !== "Select" && <div>
+        <label>Severity</label>
+        <select
+          name='severity'
+          onChange={updateSeverity}
+          value={severity}>
+            <option value="Non_threatening">Non-Threatening</option>
+            <option value="Mild">Mild</option>
+            <option value="Moderate">Moderate</option>
+            <option value="Severe">Severe</option>
+            <option value="Life_threatening">Life Threatening</option>
+        </select>
+      </div>}
+      <div>
         <label>Vaccination Card</label>
         <input
           type='text'
@@ -155,7 +190,7 @@ const SignUpForm = () => {
             <option value="Chills">Chills</option>
             <option value="Skin_Rash">Skin Rash</option>
             <option value="Shortness_of_Breath">Shortness of Breath</option>
-            <option value="Naauseated">Naauseated</option>
+            <option value="Nauseated">Nauseated</option>
             <option value="Chronic_Pain">Chronic Pain</option>
           </select>
       </div>
