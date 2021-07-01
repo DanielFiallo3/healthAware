@@ -13,7 +13,7 @@ const SignUpForm = () => {
   const [profilePic, setProfilePic] = useState('');
   const [vaccinationCard, setVaccinationCard] = useState('');
   const [additionalDetails, setAdditionalDetails] = useState('');
-  const [currentSymptoms, setCurrentSymptoms] = useState('');
+  const [currentSymptoms, setCurrentSymptoms] = useState('Select Symptom');
   const [geolocation, setGeolocation] = useState('');
   
   const user = useSelector(state => state.session.user);
@@ -146,12 +146,18 @@ const SignUpForm = () => {
       </div>
       <div>
         <label>Current Symptoms</label>
-        <input
-          type='text'
+        <select
           name='currentSymptoms'
           onChange={updateCurrentSymptoms}
-          value={currentSymptoms}
-        ></input>
+          value={currentSymptoms}>
+            <option value="Cough">Cough</option>
+            <option value="Fever">Fever</option>
+            <option value="Chills">Chills</option>
+            <option value="Skin_Rash">Skin Rash</option>
+            <option value="Shortness_of_Breath">Shortness of Breath</option>
+            <option value="Naauseated">Naauseated</option>
+            <option value="Chronic_Pain">Chronic Pain</option>
+          </select>
       </div>
       <div>
         <label>Geolocation</label>

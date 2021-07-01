@@ -7,8 +7,14 @@ class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(40), nullable=False, unique=True)
+    username = db.Column(db.String(255), nullable=False, unique=True)
+    name = db.Column(db.String(255), nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
+    profilePic = db.Column(db.String(255), nullable=True)
+    vaccinationCard = db.Column(db.String(255), nullable=True)
+    additionalDetails = db.Column(db.String(255), nullable=True)
+    currentSymptoms = db.Column(db.String(255), nullable=True)
+    geolocation = db.Column(db.String(255), nullable=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
     @property
@@ -26,5 +32,11 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email
+            'name': self.name,
+            'email': self.email,
+            'profilePic': self.profilePic,
+            'vaccinationCard': self.vaccinationCard,
+            'additionalDetails': self.additionalDetails,
+            'currentSymptoms': self.currentSymptoms,
+            'geolocation': self.geolocation
         }

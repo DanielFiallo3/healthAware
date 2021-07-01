@@ -64,7 +64,13 @@ def sign_up():
     if form.validate_on_submit():
         user = User(
             username=form.data['username'],
+            name=form.data['name'],
             email=form.data['email'],
+            profilePic= form.data['profilePic'],
+            vaccinationCard= form.data['vaccinationCard'],
+            additionalDetails= form.data['additionalDetails'],
+            currentSymptoms= form.data['currentSymptoms'],
+            geolocation= form.data['geolocation'],
             password=form.data['password']
         )
         db.session.add(user)
