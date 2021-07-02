@@ -6,16 +6,25 @@ import { signUp } from '../../store/session';
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
+  const [profilePic, setProfilePic] = useState('');
+  const [vaccinationCard, setVaccinationCard] = useState('');
+  const [additionalDetails, setAdditionalDetails] = useState('');
+  const [currentSymptoms, setCurrentSymptoms] = useState('Select Symptom');
+  const [geolocation, setGeolocation] = useState('');
+  const [allergies, setAllergies] = useState('Select');
+  const [severity, setSeverity] = useState('');
+  
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(username, name, email, password, profilePic, allergies, severity, vaccinationCard, additionalDetails, currentSymptoms, geolocation));
       if (data) {
         setErrors(data)
       }
@@ -24,6 +33,10 @@ const SignUpForm = () => {
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
+  };
+
+  const updateName = (e) => {
+    setName(e.target.value);
   };
 
   const updateEmail = (e) => {
@@ -37,6 +50,34 @@ const SignUpForm = () => {
   const updateRepeatPassword = (e) => {
     setRepeatPassword(e.target.value);
   };
+  const updateProfilePic = (e) => {
+    setProfilePic(e.target.value);
+  };
+
+  const updateVaccinationCard = (e) => {
+    setVaccinationCard(e.target.value);
+  };
+
+  const updateAdditionalDetails = (e) => {
+    setAdditionalDetails(e.target.value);
+  };
+
+  const updateCurrentSymptoms = (e) => {
+    setCurrentSymptoms(e.target.value);
+  };
+
+  const updateGeolocation = (e) => {
+    setGeolocation(e.target.value);
+  };
+
+  const updateAllergies = (e) => {
+    setAllergies(e.target.value);
+  };
+
+  const updateSeverity = (e) => {
+    setSeverity(e.target.value);
+  };
+
 
   if (user) {
     return <Redirect to='/' />;
@@ -48,6 +89,15 @@ const SignUpForm = () => {
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
+      </div>
+      <div>
+        <label>Name</label>
+        <input
+          type='text'
+          name='name'
+          onChange={updateName}
+          value={name}
+        ></input>
       </div>
       <div>
         <label>User Name</label>
@@ -84,6 +134,82 @@ const SignUpForm = () => {
           onChange={updateRepeatPassword}
           value={repeatPassword}
           required={true}
+        ></input>
+      </div>
+      <div>
+        <label>Profile Picture</label>
+        <input
+          type='text'
+          name='profilePic'
+          onChange={updateProfilePic}
+          value={profilePic}
+        ></input>
+      </div>
+      <div>
+        <label>Allergies</label>
+        <select
+          placeholder="Please Select"
+          name='allergies'
+          onChange={updateAllergies}
+          value={allergies}>
+          {["Select", "Peanuts", "Animal Dander", "Gluten", "Shellfish", "Dairy", "Pollen/Dust/Mold", "Other"].map(each => (
+            <option value={each}>{each} </option>
+          ))}
+        </select>
+      </div>
+      {allergies !== "Select" && <div>
+        <label>Severity</label>
+        <select
+          name='severity'
+          onChange={updateSeverity}
+          value={severity}>
+            <option value="Non_threatening">Non-Threatening</option>
+            <option value="Mild">Mild</option>
+            <option value="Moderate">Moderate</option>
+            <option value="Severe">Severe</option>
+            <option value="Life_threatening">Life Threatening</option>
+        </select>
+      </div>}
+      <div>
+        <label>Vaccination Card</label>
+        <input
+          type='text'
+          name='vaxCard'
+          onChange={updateVaccinationCard}
+          value={vaccinationCard}
+        ></input>
+      </div>
+      <div>
+        <label>Current Symptoms</label>
+        <select
+          name='currentSymptoms'
+          onChange={updateCurrentSymptoms}
+          value={currentSymptoms}>
+            <option value="Cough">Cough</option>
+            <option value="Fever">Fever</option>
+            <option value="Chills">Chills</option>
+            <option value="Skin_Rash">Skin Rash</option>
+            <option value="Shortness_of_Breath">Shortness of Breath</option>
+            <option value="Nauseated">Nauseated</option>
+            <option value="Chronic_Pain">Chronic Pain</option>
+          </select>
+      </div>
+      <div>
+        <label>Geolocation</label>
+        <input
+          type='text'
+          name='geolocation'
+          onChange={updateGeolocation}
+          value={geolocation}
+        ></input>
+      </div>
+      <div>
+        <label>Additonal Details</label>
+        <input
+          type='text'
+          name='additionalDetails'
+          onChange={updateAdditionalDetails}
+          value={additionalDetails}
         ></input>
       </div>
       <button type='submit'>Sign Up</button>
