@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { updatedUser, deleteOneUser} from "../store/session"
-
+import UserForm from "./UserForm"
 
 function User() {
   // const [edit, setEdit] = useState(false);
@@ -19,8 +19,9 @@ function User() {
   const [additionalDetails, setAdditionalDetails] = useState("");
   const [currentSymptoms, setCurrentSymptoms] = useState("");
   const [geolocation, setGeolocation] = useState("");
-  const [allergies, setAllergies] = useState("Select");
+  const [allergies, setAllergies] = useState({});
   const [severity, setSeverity] = useState("");
+  
 
   const dispatch = useDispatch();
 
@@ -87,13 +88,34 @@ function User() {
     setGeolocation(e.target.value);
   };
 
-  const updateAllergies = (e) => {
-    setAllergies(e.target.value);
+  const updateSeverity = (allergy) => (e) => {
+    setAllergies((prevAlergy) => {
+      return {
+        ...prevAlergy,
+        [allergy]: {
+          severity: e.target.value
+        }
+      }
+    });
   };
 
-  const updateSeverity = (e) => {
-    setSeverity(e.target.value);
+   const updateAllergy = (allergy) => (e) => {
+    setAllergies((prevAlergy) => {
+      // console.log('updateAllergy function', allergy, prevAlergy[allergy])
+      if(prevAlergy[allergy]) {
+        return {
+          ...prevAlergy,
+          [allergy]: null
+          }
+      } else return {
+        ...prevAlergy,
+        [allergy]: {
+          severity: "Non_threatening"
+        }
+      }
+    });
   };
+
 
   useEffect(() => {
     if (user && !user.errors) {
@@ -103,150 +125,40 @@ function User() {
       setAdditionalDetails(user.additionalDetails)
       setCurrentSymptoms(user.currentSymptoms)
       setGeolocation(user.geolocation)
-      setAllergies(user.allergies)
-      setSeverity(user.severity)
     }
-  })
+  }, [user])
 
 
   
 
   return (
-    <form onSubmit={onUpdateForm}>
-      <div>
-          {errors.map((error, ind) => (
-            <div key="error">{error}</div>
-          ))}
-        </div>
-        <div>
-          <label>Name</label>
-          <input
-            type='text'
-            name='name'
-            onChange={updateName}
-            value={name}
-          ></input>
-        </div>
-        <div>
-          <label>User Name</label>
-          <input
-            type='text'
-            name='username'
-            onChange={updateUsername}
-            value={username}
-          ></input>
-        </div>
-        <div>
-          <label>Email</label>
-          <input
-            type='text'
-            name='email'
-            onChange={updateEmail}
-            value={email}
-          ></input>
-        </div>
-        <div>
-          <label>Password</label>
-          <input
-            type='password'
-            name='password'
-            onChange={updatePassword}
-            value={password}
-          ></input>
-        </div>
-        <div>
-          <label>Repeat Password</label>
-          <input
-            type='password'
-            name='repeat_password'
-            onChange={updateRepeatPassword}
-            value={repeatPassword}
-            required={true}
-          ></input>
-        </div>
-        <div>
-          <label>Profile Picture</label>
-          <input
-            type='file'
-            name='profilePic'
-            accept="image/*"
-            onChange={updateProfilePic}
-            value={profilePic}
-          ></input>
-        </div>
-        <div>
-          <label>Allergies</label>
-          <select
-            placeholder="Please Select"
-            name='allergies'
-            onChange={updateAllergies}
-            value={allergies}>
-            {["Select", "Peanuts", "Animal Dander", "Gluten", "Shellfish", "Dairy", "Pollen/Dust/Mold", "Other"].map(each => (
-              <option value={each}>{each} </option>
-            ))}
-          </select>
-        </div>
-        {allergies !== "Select" && <div>
-          <label>Severity</label>
-          <select
-            name='severity'
-            onChange={updateSeverity}
-            value={severity}>
-              <option value="Non_threatening">Non-Threatening</option>
-              <option value="Mild">Mild</option>
-              <option value="Moderate">Moderate</option>
-              <option value="Severe">Severe</option>
-              <option value="Life_threatening">Life Threatening</option>
-          </select>
-        </div>}
-        <div>
-          <label>Vaccination Card</label>
-          <input
-            type='file'
-            name='vaxCard'
-            accept='pdf/*'
-            onChange={updateVaccinationCard}
-            value={vaccinationCard}
-          ></input>
-        </div>
-        <div>
-          <label>Current Symptom</label>
-          <select
-            name='currentSymptoms'
-            onChange={updateCurrentSymptoms}
-            value={currentSymptoms}>
-              <option value="Cough">Cough</option>
-              <option value="Fever">Fever</option>
-              <option value="Chills">Chills</option>
-              <option value="Skin_Rash">Skin Rash</option>
-              <option value="Shortness_of_Breath">Shortness of Breath</option>
-              <option value="Nauseated">Nauseated</option>
-              <option value="Chronic_Pain">Chronic Pain</option>
-            </select>
-        </div>
-        <div>
-          <label>Geolocation</label>
-          <input
-            type='text'
-            name='geolocation'
-            onChange={updateGeolocation}
-            value={geolocation}
-          ></input>
-        </div>
-        <div>
-          <label>Additonal Details</label>
-          <input
-            type='text'
-            name='additionalDetails'
-            onChange={updateAdditionalDetails}
-            value={additionalDetails}
-          ></input>
-          <button type='submit'>Confirm Changes</button>
-          <button type='button'>Cancel Changes</button>
-          {/* <button type='button' onClick={deleteOneUser(user)}>Delete User</button> */}
-          </div>
-    </form>
-
+    < UserForm onSubmit={onUpdateForm} setters={{errors, 
+        username, 
+        name, 
+        email, 
+        password, 
+        repeatPassword, 
+        profilePic, 
+        vaccinationCard, 
+        additionalDetails, 
+        currentSymptoms, 
+        geolocation,
+        allergies,
+        setErrors,
+        updateUsername,
+        updateName,
+        updateEmail,
+        updatePassword,
+        updateRepeatPassword,
+        updateProfilePic,
+        updateVaccinationCard,
+        updateAdditionalDetails,
+        updateCurrentSymptoms,
+        updateGeolocation,
+        updateAllergy,
+        updateSeverity}}>
+      <button type='submit'>Confirm Changes</button>
+      </ UserForm >
   )
 }
 export default User;
