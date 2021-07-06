@@ -17,3 +17,31 @@ def users():
 def user(id):
     user = User.query.get(id)
     return user.to_dict()
+
+
+@user_routes.route('/<int:id>', methods = ['PATCH'])
+@login_required
+def updateProfile():
+    form = UpdateForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        user = User.query.get(current_user.id)
+        user.newName=form.data['newName'],
+        user.username = form.data['newUsername']
+        user.newEmail=form.data['email'],
+        user.newProfilePic=form.data['newProfilePic'],
+        user.newVaccinationCard=form.data['newVaccinationCard']
+        user.newGeolocation=form.data['newGeolocation']
+        user.newAllergies=form.data['newAllergies']
+        user.newSeverity=form.data['newSeverity']
+
+        db.session.commit()
+        return user.to_dict()
+
+@user_routes.route('/<int:id>', methods = ['DELETE'])
+@login_required
+def delete_user(id):
+    user = User.query.get(current_user.id)
+    db.session.delete(user)
+    db.session.commit()
+    return {'message': 'success'}

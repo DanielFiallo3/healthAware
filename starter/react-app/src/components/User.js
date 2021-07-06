@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDipatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { updateUser } from '../'
+import { updatedUser, deleteOneUser} from "../../store"
 
 
 function User() {
@@ -100,7 +100,7 @@ function User() {
     <form onSubmit={onUpdateForm}>
       <div>
           {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
+            <div key="error">{error}</div>
           ))}
         </div>
         <div>
@@ -225,7 +225,9 @@ function User() {
             value={additionalDetails}
           ></input>
           <button type='submit'>Confirm Changes</button>
-        </div>
+          <button type='submit' onChange={updatedUser(user)}>Cancel Changes</button>
+          <button type='submit' onChange={deleteOneUser(user)}>Delete User</button>
+          </div>
     </form>
 
   )
