@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify
 from flask_login import login_required
 from app.models import User
 
-from app.s3_helpers import (
+from app.s3_helper import (
     upload_file_to_s3, allowed_file, get_unique_filename)
 
 user_routes = Blueprint('users', __name__)
@@ -29,14 +29,14 @@ def updateProfile():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         user = User.query.get(current_user.id)
-        user.newName=form.data['newName'],
+        user.name=form.data['newName'],
         user.username = form.data['newUsername']
-        user.newEmail=form.data['email'],
-        user.newProfilePic=form.data['newProfilePic'],
-        user.newVaccinationCard=form.data['newVaccinationCard']
-        user.newGeolocation=form.data['newGeolocation']
-        user.newAllergies=form.data['newAllergies']
-        user.newSeverity=form.data['newSeverity']
+        user.email=form.data['newEmail'],
+        user.profilePic=form.data['newProfilePic'],
+        user.vaccinationCard=form.data['newVaccinationCard']
+        user.geolocation=form.data['newGeolocation']
+        user.allergies=form.data['newAllergies']
+        user.severity=form.data['newSeverity']
 
         db.session.commit()
         return user.to_dict()

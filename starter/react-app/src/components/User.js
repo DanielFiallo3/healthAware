@@ -1,27 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector, useDipatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { updatedUser, deleteOneUser} from "../../store"
+import { updatedUser, deleteOneUser} from "../store/session"
 
 
 function User() {
   // const [edit, setEdit] = useState(false);
-  const [errors, setErrors] = useState([]);
-  const [username, setUsername] = useState(user ? user.username : "");
-  const [name, setName] = useState(user ? user.name : "");
-  const [email, setEmail] = useState(user ? user.email : "");
-  const [password, setPassword] = useState(user ? user.password : "");
-  const [repeatPassword, setRepeatPassword] = useState(user ? user.repeat_password : "");
-  const [profilePic, setProfilePic] = useState(user ? user.profilePic : "");
-  const [vaccinationCard, setVaccinationCard] = useState(user ? user.vaccinationCard : "");
-  const [additionalDetails, setAdditionalDetails] = useState(user ? user.additionalDetails : "");
-  const [currentSymptoms, setCurrentSymptoms] = useState(user ? user.currentSymptoms : "");
-  const [geolocation, setGeolocation] = useState(user ? user.geolocation : "");
-  const [allergies, setAllergies] = useState(user ? user.allergies : "");
-  const [severity, setSeverity] = useState(user ? user.severity : "");
-
-  const dispatch = useDipatch();
   const user = useSelector(state => state.session.user)
+
+  const [errors, setErrors] = useState([]);
+  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [repeatPassword, setRepeatPassword] = useState("");
+  const [profilePic, setProfilePic] = useState("");
+  const [vaccinationCard, setVaccinationCard] = useState("");
+  const [additionalDetails, setAdditionalDetails] = useState("");
+  const [currentSymptoms, setCurrentSymptoms] = useState("");
+  const [geolocation, setGeolocation] = useState("");
+  const [allergies, setAllergies] = useState("Select");
+  const [severity, setSeverity] = useState("");
+
+  const dispatch = useDispatch();
 
 
 
@@ -40,11 +41,12 @@ function User() {
     const newSeverity = severity
 
     if(newPassword === newRepeatPassword) {
-      const data = dispatch(updateUser({newUsername, newName, newEmail, newPassword, newRepeatPassword, newProfilePic, newVaccinationCard, newAdditionalDetails, newGeolocation, newAllergies, newSeverity}))
+      const data = dispatch(updatedUser({newUsername, newName, newEmail, newPassword, newRepeatPassword, newProfilePic, newVaccinationCard, newAdditionalDetails, newGeolocation, newAllergies, newSeverity}))
       if (data) {
         setErrors(data)
       }
     }
+  }
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -93,8 +95,21 @@ function User() {
     setSeverity(e.target.value);
   };
 
+  useEffect(() => {
+    if (user && !user.errors) {
+      setName(user.name)
+      setUsername(user.username)
+      setEmail(user.email)
+      setAdditionalDetails(user.additionalDetails)
+      setCurrentSymptoms(user.currentSymptoms)
+      setGeolocation(user.geolocation)
+      setAllergies(user.allergies)
+      setSeverity(user.severity)
+    }
+  })
 
-  }
+
+  
 
   return (
     <form onSubmit={onUpdateForm}>
@@ -195,7 +210,7 @@ function User() {
           ></input>
         </div>
         <div>
-          <label>Current Symptoms</label>
+          <label>Current Symptom</label>
           <select
             name='currentSymptoms'
             onChange={updateCurrentSymptoms}
@@ -227,8 +242,8 @@ function User() {
             value={additionalDetails}
           ></input>
           <button type='submit'>Confirm Changes</button>
-          <button type='submit' onChange={updatedUser(user)}>Cancel Changes</button>
-          <button type='submit' onChange={deleteOneUser(user)}>Delete User</button>
+          <button type='button'>Cancel Changes</button>
+          {/* <button type='button' onClick={deleteOneUser(user)}>Delete User</button> */}
           </div>
     </form>
 

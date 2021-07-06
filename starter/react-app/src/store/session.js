@@ -103,6 +103,19 @@ export const signUp = (username, name, email, password, profilePic, allergies, s
       severity
     }),
   });
+    if (response.ok) {
+      const data = await response.json();
+      dispatch(setUser(data))
+      return null;
+    } else if (response.status < 500) {
+      const data = await response.json();
+      if (data.errors) {
+        return data.errors;
+      }
+    } else {
+      return ['An error occurred. Please try again.']
+    }
+}
 
   export const updatedUser = (newUsername, newName, newEmail, newPassword, newRepeatPassword, newProfilePic, newVaccinationCard, newAdditionalDetails, newGeolocation, newAllergies, newSeverity) => async (dispatch) => {
   const response = await fetch('/api/auth/user', {
@@ -123,24 +136,21 @@ export const signUp = (username, name, email, password, profilePic, allergies, s
         newSeverity
     }),
   });
-
-  if (response.ok && !user) {
-    const data = await response.json();
-    dispatch(setUser(data))
-    return null;
-  } else if (response.ok && user) {
-    const data = await response.json();
-    dispatch(updateUser(data))
-    return null;
-  } else if (response.status < 500) {
-    const data = await response.json();
-    if (data.errors) {
-      return data.errors;
+  if (response.ok) {
+      const data = await response.json();
+      dispatch(updateUser(data))
+      return null;
+    } else if (response.status < 500) {
+      const data = await response.json();
+      if (data.errors) {
+        return data.errors;
+      }
+    } else {
+      return ['An error occurred. Please try again.']
     }
-  } else {
-    return ['An error occurred. Please try again.']
-  }
 }
+
+
 
 export const deleteOneUser = (userId) => async (dispatch) => {
   const res = await fetch('/api/auth/user', {

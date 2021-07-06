@@ -139,8 +139,9 @@ const SignUpForm = () => {
       <div>
         <label>Profile Picture</label>
         <input
-          type='text'
+          type='file'
           name='profilePic'
+          accept="image/*"
           onChange={updateProfilePic}
           value={profilePic}
         ></input>
@@ -173,14 +174,15 @@ const SignUpForm = () => {
       <div>
         <label>Vaccination Card</label>
         <input
-          type='text'
+          type='file'
           name='vaxCard'
+          accept='pdf/*'
           onChange={updateVaccinationCard}
           value={vaccinationCard}
         ></input>
       </div>
       <div>
-        <label>Current Symptoms</label>
+        <label>Current Symptom</label>
         <select
           name='currentSymptoms'
           onChange={updateCurrentSymptoms}
