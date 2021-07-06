@@ -152,8 +152,9 @@ function User() {
         <div>
           <label>Profile Picture</label>
           <input
-            type='text'
+            type='file'
             name='profilePic'
+            accept="image/*"
             onChange={updateProfilePic}
             value={profilePic}
           ></input>
@@ -186,8 +187,9 @@ function User() {
         <div>
           <label>Vaccination Card</label>
           <input
-            type='text'
+            type='file'
             name='vaxCard'
+            accept='pdf/*'
             onChange={updateVaccinationCard}
             value={vaccinationCard}
           ></input>
