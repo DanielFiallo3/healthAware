@@ -69,6 +69,7 @@ def sign_up():
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
+        allergies=request.json["allergies"]
         user = User(
             username=form.data['username'],
             name=form.data['name'],
@@ -80,8 +81,8 @@ def sign_up():
             geolocation= form.data['geolocation'],
             password=form.data['password'],
         )
-        if form.data['allergies'] != "Select":
-            user.allergies = [(form.data['allergies'], form.data['severity'])]
+        user.allergies = [(allergy, allergies[allergy]["severity"]) for allergy in allergies]
+
         db.session.add(user)
         db.session.commit()
         login_user(user)

@@ -82,8 +82,8 @@ export const logout = () => async (dispatch) => {
 };
 
 
-export const signUp = (username, name, email, password, profilePic, allergies, severity, vaccinationCard, additionalDetails, currentSymptoms, geolocation) => async (dispatch) => {
-  console.log("___________",currentSymptoms, severity)
+export const signUp = (username, name, email, password, profilePic, allergies, vaccinationCard, additionalDetails, currentSymptoms, geolocation) => async (dispatch) => {
+  console.log("___________",currentSymptoms)
   const response = await fetch('/api/auth/signup', {
     method: 'POST',
     headers: {
@@ -99,8 +99,7 @@ export const signUp = (username, name, email, password, profilePic, allergies, s
       currentSymptoms,
       geolocation,
       password,
-      allergies,
-      severity
+      allergies
     }),
   });
     if (response.ok) {
@@ -117,23 +116,23 @@ export const signUp = (username, name, email, password, profilePic, allergies, s
     }
 }
 
-  export const updatedUser = (newUsername, newName, newEmail, newPassword, newRepeatPassword, newProfilePic, newVaccinationCard, newAdditionalDetails, newGeolocation, newAllergies, newSeverity) => async (dispatch) => {
-  const response = await fetch('/api/auth/user', {
+  export const updatedUser = ({newUsername, newName, newEmail, newPassword, newRepeatPassword, newProfilePic, newVaccinationCard, newAdditionalDetails, newGeolocation, newAllergies}) => async (dispatch) => {
+  const response = await fetch('/api/users/myself', {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
       newUsername, 
-      newName, newEmail,
+      newName, 
+      newEmail,
        newPassword,
         newRepeatPassword,
         newProfilePic,
         newVaccinationCard,
         newAdditionalDetails,
         newGeolocation,
-        newAllergies,
-        newSeverity
+        newAllergies
     }),
   });
   if (response.ok) {

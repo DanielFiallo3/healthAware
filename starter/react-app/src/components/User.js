@@ -20,7 +20,6 @@ function User() {
   const [currentSymptoms, setCurrentSymptoms] = useState("");
   const [geolocation, setGeolocation] = useState("");
   const [allergies, setAllergies] = useState({});
-  const [severity, setSeverity] = useState("");
   
 
   const dispatch = useDispatch();
@@ -39,13 +38,12 @@ function User() {
     const newAdditionalDetails = additionalDetails
     const newGeolocation = geolocation
     const newAllergies = allergies
-    const newSeverity = severity
 
     if(newPassword === newRepeatPassword) {
-      const data = dispatch(updatedUser({newUsername, newName, newEmail, newPassword, newRepeatPassword, newProfilePic, newVaccinationCard, newAdditionalDetails, newGeolocation, newAllergies, newSeverity}))
-      if (data) {
+      dispatch(updatedUser({newUsername, newName, newEmail, newPassword, newRepeatPassword, newProfilePic, newVaccinationCard, newAdditionalDetails, newGeolocation, newAllergies}))
+      .catch((data) => {
         setErrors(data)
-      }
+      })
     }
   }
 
