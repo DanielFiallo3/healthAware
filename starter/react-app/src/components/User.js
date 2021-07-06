@@ -1,21 +1,15 @@
 import React from 'react';
-import { useSelector, useDipatch } from 'react-redux';
+import { useSelector} from 'react-redux';
 
 function User() {
-  const [edit, setEdit] = useState(false);
+  // const [edit, setEdit] = useState(false);
   const user = useSelector(state => state.session.user)
-  const dispatch = useDipatch();
+  // const dispatch = useDipatch();
+
+  
 
   if (!user) {
     return null;
-  }
-
-  const onEdit = () => {
-    setEdit((prevState) => !prevState)
-  }
-
-  const onDelete = async(user) => {
-    await dispatch(deleteOnePost(user))
   }
 
   return (
@@ -66,9 +60,9 @@ function User() {
           <li> {user.username} </li>
       </div>
 
-      <button onClick={() => onEdit(user)}> Edit </button>
+      {/* <button onClick={() => onEdit(user)}> Edit </button>
 
-      <button onClick={() => onDelete(user)}> Delete User </button>
+      <button onClick={() => onDelete(user)}> Delete User </button> */}
 
     </div>
   );
