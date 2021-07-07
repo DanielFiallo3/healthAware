@@ -1,12 +1,26 @@
 import React, { useState, useCallback } from 'react';
 import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
-
+import { useSelector } from 'react-redux';
 
 
 const MapPageA = () => {
     
-const [currentPosition, setCurrentPosition] = useState({lat:43.11016617798622,lng:-89.48826131670266})
+// const [currentPosition, setCurrentPosition] = useState({lat:43.11016617798622,lng:-89.48826131670266})
+const UserPositionString =  useSelector(state => state.session.user.geolocation);
 
+function ChangeUserPos(StringPos) {
+    let finalObj = {lat:null, lng:null}
+    let array = StringPos.split(',')
+    
+    finalObj.lat = +array[0]
+    finalObj.lng = +array[1]
+    
+    return finalObj
+}
+
+const UserPosition = ChangeUserPos(UserPositionString)
+
+console.log("---------", (UserPosition))
 
 //This sets the center of the map. This must be set BEFORE the map loads
    
@@ -41,11 +55,11 @@ const onUnmount = useCallback(function callback(map) {
         {isLoaded && <GoogleMap
           mapContainerStyle={containerStyle}
           zoom={8}
-          center={currentPosition}
+          center={UserPosition}
           onUnmount={onUnmount}
           >
         <Marker 
-              position={currentPosition}
+              position={UserPosition}
               title="Ananya Hans"
               streetView={false}> 
 

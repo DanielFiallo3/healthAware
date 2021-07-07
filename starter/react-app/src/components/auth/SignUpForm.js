@@ -66,9 +66,18 @@ const SignUpForm = () => {
     setCurrentSymptoms(e.target.value);
   };
 
-  const updateGeolocation = (e) => {
-    setGeolocation(e.target.value);
-  };
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        console.log("Latitude is :", position.coords.latitude)
+        console.log("Longitude is :", position.coords.longitude)
+        setGeolocation(`${position.coords.latitude}, ${position.coords.longitude}`)
+
+    })} else {
+      return;
+    }
+  }
+  
 
   const updateAllergies = (e) => {
     setAllergies(e.target.value);
@@ -196,12 +205,9 @@ const SignUpForm = () => {
       </div>
       <div>
         <label>Geolocation</label>
-        <input
-          type='text'
-          name='geolocation'
-          onChange={updateGeolocation}
-          value={geolocation}
-        ></input>
+        <button onclick={getLocation()} >
+          Get My Location
+        </button>
       </div>
       <div>
         <label>Additonal Details</label>
