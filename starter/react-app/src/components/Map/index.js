@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 
 const MapPageA = () => {
     
-// const [currentPosition, setCurrentPosition] = useState({lat:43.11016617798622,lng:-89.48826131670266})
 const UserPositionString =  useSelector(state => state.session.user.geolocation);
 
 function ChangeUserPos(StringPos) {
