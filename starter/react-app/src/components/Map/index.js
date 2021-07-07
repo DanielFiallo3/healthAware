@@ -1,9 +1,9 @@
 import React, { useState, useCallback } from 'react';
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
 
 
 
-function MapPageA(){
+const MapPageA = () => {
     
 const [currentPosition, setCurrentPosition] = useState({lat:43.11016617798622,lng:-89.48826131670266})
 
@@ -16,7 +16,9 @@ const [currentPosition, setCurrentPosition] = useState({lat:43.11016617798622,ln
 const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: process.env.REACT_APP_MAPS_KEY
-  })
+})
+
+console.log("--------------------------------------------------", process.env)
   
 const containerStyle = {
     width: '800px',
@@ -36,13 +38,26 @@ const onUnmount = useCallback(function callback(map) {
       <div className="map_page__container">
  
         <div style={{ height: '900px', width: '900px' }}>
-            {isLoaded && <GoogleMap
-              mapContainerStyle={containerStyle}
-              zoom={8}
-              center={currentPosition}
-              onUnmount={onUnmount}
-              >
-            </GoogleMap>}
+        {isLoaded && <GoogleMap
+          mapContainerStyle={containerStyle}
+          zoom={8}
+          center={currentPosition}
+          onUnmount={onUnmount}
+          >
+        <Marker 
+              position={currentPosition}
+              title="Ananya Hans"
+              streetView={false}> 
+
+              {/* <InfoWindow position={{currentPosition}} >
+                <div>
+                  <span>Ananya Hans</span>
+                </div>
+              </InfoWindow> */}
+              
+        </Marker>
+    
+        </GoogleMap>}
         </div>
        
       </div>
