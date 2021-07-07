@@ -32,5 +32,3 @@ class SignUpForm(FlaskForm):
     currentSymptoms = SelectField('currentSymptoms', choices=symptoms)
     geolocation = StringField('geolocation')
     password = StringField('password', validators=[DataRequired()])
-    allergies = StringField('allergies')
-    severity = SelectField('severity', choices=options)

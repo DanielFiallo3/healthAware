@@ -31,6 +31,8 @@ class User(db.Model, UserMixin):
 
     @allergies.setter
     def allergies(self, allergies):
+        for allergy in self.userAllergiesJoin:
+            db.session.delete(allergy)
         for allergy in allergies:
             db_allergy = Allergies.query.filter(Allergies.name == allergy[0]).one()
             new_User_Allergy = User_Allergies(user = self, allergy = db_allergy, severity = allergy[1])

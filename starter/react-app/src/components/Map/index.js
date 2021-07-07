@@ -34,8 +34,9 @@ const { isLoaded } = useJsApiLoader({
 console.log("--------------------------------------------------", process.env)
   
 const containerStyle = {
-    width: '800px',
-    height: '800px'
+
+    width: '2000px',
+    height: '2000px'
   };
 
 const [map, setMap] = useState(null)

@@ -4,6 +4,9 @@ from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
 
+from app.s3_helper import (
+    upload_file_to_s3, allowed_file, get_unique_filename)
+
 auth_routes = Blueprint('auth', __name__)
 
 
@@ -66,6 +69,7 @@ def sign_up():
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
+        allergies=request.json["allergies"]
         user = User(
             username=form.data['username'],
             name=form.data['name'],
@@ -77,8 +81,8 @@ def sign_up():
             geolocation= form.data['geolocation'],
             password=form.data['password'],
         )
-        if form.data['allergies'] != "Select":
-            user.allergies = [(form.data['allergies'], form.data['severity'])]
+        user.allergies = [(allergy, allergies[allergy]["severity"]) for allergy in allergies]
+
         db.session.add(user)
         db.session.commit()
         login_user(user)
