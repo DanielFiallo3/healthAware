@@ -34,6 +34,7 @@ const { isLoaded } = useJsApiLoader({
 console.log("--------------------------------------------------", process.env)
   
 const containerStyle = {
+
     width: '2000px',
     height: '2000px'
   };

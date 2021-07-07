@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import User from './components/User';
 import { authenticate } from './store/session';
+import MapPageA from './components/Map';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -38,6 +39,7 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
+          < MapPageA />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
