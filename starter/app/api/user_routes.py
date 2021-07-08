@@ -33,10 +33,10 @@ def updateProfile():
         current_user.name=form.data['newName'],
         current_user.username = form.data['newUsername']
         current_user.email=form.data['newEmail'],
-        if form.data['newProfilePic']:
-            current_user.profilePic=form.data['newProfilePic']
-        if form.data['newVaccinationCard']:
-            current_user.vaccinationCard=form.data['newVaccinationCard']
+        # if form.data['newProfilePic']:
+        current_user.profilePic=form.data['newProfilePic']
+        # if form.data['newVaccinationCard']:
+        current_user.vaccinationCard=form.data['newVaccinationCard']
         current_user.geolocation=form.data['newGeolocation']
         current_user.currentSymptoms=form.data['newCurrentSymptoms']
         current_user.additionalDetails=form.data['newAdditionalDetails']

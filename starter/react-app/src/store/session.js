@@ -134,7 +134,25 @@ export const signUp = (username, name, email, password, profilePicFile, allergie
     }
 }
 
-  export const updatedUser = ({newUsername, newName, newEmail, newPassword, newRepeatPassword, newProfilePic, newVaccinationCard, newAdditionalDetails, newGeolocation, newAllergies, newCurrentSymptoms}) => async (dispatch) => {
+  export const updatedUser = ({newUsername, newName, newEmail, newPassword, newRepeatPassword, newProfilePicFile, newVaccinationCardFile, newAdditionalDetails, newGeolocation, newAllergies, newCurrentSymptoms}) => async (dispatch) => {
+    
+  const newprofilePicFormData = new FormData()
+  newprofilePicFormData.append("image", newProfilePicFile)
+  const newprofilePicResponse = await fetch('/api/images', {
+    method: 'PUT',
+    body: newprofilePicFormData
+  })
+  const newProfilePic = (await newprofilePicResponse.json()).url
+
+  const newVaccinationCardFormData = new FormData()
+  newVaccinationCardFormData.append("image", newVaccinationCardFile)
+  const newVaccinationCardResponse = await fetch('/api/images', {
+    method: 'PUT',
+    body: newVaccinationCardFormData
+  })
+  const newVaccinationCard = (await newVaccinationCardResponse.json()).url
+  console.log(newProfilePic, newVaccinationCard)
+
   const response = await fetch('/api/users/myself', {
     method: 'PUT',
     headers: {

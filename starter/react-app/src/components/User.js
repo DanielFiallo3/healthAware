@@ -33,15 +33,15 @@ function User() {
     const newEmail = email
     const newPassword = password
     const newRepeatPassword = repeatPassword
-    const newProfilePic = profilePic
-    const newVaccinationCard = vaccinationCard
+    const newProfilePicFile = profilePic
+    const newVaccinationCardFile = vaccinationCard
     const newAdditionalDetails = additionalDetails
     const newGeolocation = geolocation
     const newAllergies = allergies
     const newCurrentSymptoms = currentSymptoms
 
     if(newPassword === newRepeatPassword) {
-      dispatch(updatedUser({newUsername, newName, newEmail, newPassword, newRepeatPassword, newProfilePic, newVaccinationCard, newAdditionalDetails, newGeolocation, newAllergies, newCurrentSymptoms}))
+      dispatch(updatedUser({newUsername, newName, newEmail, newPassword, newRepeatPassword, newProfilePicFile, newVaccinationCardFile, newAdditionalDetails, newGeolocation, newAllergies, newCurrentSymptoms}))
       .catch((data) => {
         setErrors(data)
       })
@@ -67,12 +67,23 @@ function User() {
   const updateRepeatPassword = (e) => {
     setRepeatPassword(e.target.value);
   };
+  
   const updateProfilePic = (e) => {
-    setProfilePic(e.target.value);
+    if (e.target.files) {
+      const imgFile = e.target.files[0];
+      setProfilePic(imgFile)
+    } else {
+      console.log("no image")
+    };
   };
 
   const updateVaccinationCard = (e) => {
-    setVaccinationCard(e.target.value);
+    if (e.target.files) {
+      const imgFile = e.target.files[0];
+      setVaccinationCard(imgFile);
+    } else {
+      console.log("no image")
+    }; 
   };
 
   const updateAdditionalDetails = (e) => {
@@ -135,7 +146,8 @@ function User() {
     }
   }, [user])
 
-
+  let listOfAllergies = user.allergies
+  console.log(listOfAllergies)
   
 
   return (
@@ -154,9 +166,16 @@ function User() {
         </div>
         <div>
           <h3>
-            {/* My allergies: {user.allergies[0].name} 
-            <br/>
-            Severity: {user.allergies[0].severity} */}
+            My allergies: {listOfAllergies.map(each => (
+              <ul>
+                <div>
+                  {each.name}
+                    <div>
+                      Severity: {each.severity}
+                    </div>
+                </div>
+              </ul>
+            ))}
           </h3>
         </div>
         <div>
