@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch, useStore } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { updatedUser, deleteOneUser} from "../store/session"
 import UserForm from "./UserForm"
@@ -139,33 +139,69 @@ function User() {
   
 
   return (
-    < UserForm onSubmit={onUpdateForm} setters={{errors, 
-        username, 
-        name, 
-        email, 
-        password, 
-        repeatPassword, 
-        profilePic, 
-        vaccinationCard, 
-        additionalDetails, 
-        currentSymptoms, 
-        geolocation,
-        allergies,
-        setErrors,
-        updateUsername,
-        updateName,
-        updateEmail,
-        updatePassword,
-        updateRepeatPassword,
-        updateProfilePic,
-        updateVaccinationCard,
-        updateAdditionalDetails,
-        updateCurrentSymptoms,
-        getLocation,
-        updateAllergy,
-        updateSeverity}}>
-      <button type='submit'>Confirm Changes</button>
-      </ UserForm >
+    <div>
+      <div>
+        <div>
+          <h1>
+            {user.name}'s Profile Page
+          </h1>
+        </div>
+        <div>
+          <img src={user.profilePic} alt="profilePic"></img>
+        </div>
+        <div>
+          <img src={user.vaccinationCard} alt="vaxCard"></img>
+        </div>
+        <div>
+          <h3>
+            My allergies: {user.allergies[0].name} 
+            <br/>
+            Severity: {user.severity}
+          </h3>
+        </div>
+        <div>
+          <h3>
+            Current Symptoms: {user.currentSymptoms}
+          </h3>
+        </div>
+        <div>
+          <h3>
+            Additional Details:
+            <br/> 
+            {user.additionalDetails}
+          </h3>
+        </div>
+      </div>
+      <div>
+        <UserForm onSubmit={onUpdateForm} setters={{errors, 
+            username, 
+            name, 
+            email, 
+            password, 
+            repeatPassword, 
+            profilePic, 
+            vaccinationCard, 
+            additionalDetails, 
+            currentSymptoms, 
+            geolocation,
+            allergies,
+            setErrors,
+            updateUsername,
+            updateName,
+            updateEmail,
+            updatePassword,
+            updateRepeatPassword,
+            updateProfilePic,
+            updateVaccinationCard,
+            updateAdditionalDetails,
+            updateCurrentSymptoms,
+            getLocation,
+            updateAllergy,
+            updateSeverity}}>
+          <button type='submit'>Confirm Changes</button>
+        </ UserForm >
+      </div>
+    </div>
   )
 }
 export default User;
