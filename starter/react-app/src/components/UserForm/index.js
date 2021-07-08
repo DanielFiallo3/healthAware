@@ -33,7 +33,6 @@ updateAllergy,
 updateSeverity}}) {
   // const [edit, setEdit] = useState(false);
 
-  
 
 
   return (
@@ -94,9 +93,9 @@ updateSeverity}}) {
           <input
             type='file'
             name='profilePic'
-            accept="image/*"
+            // accept="image/*"
             onChange={updateProfilePic}
-            value={profilePic}
+            // value={profilePic}
           ></input>
         </div>
         <div> 
@@ -122,9 +121,9 @@ updateSeverity}}) {
           <input
             type='file'
             name='vaxCard'
-            accept='pdf/*'
+            // accept='pdf/*'
             onChange={updateVaccinationCard}
-            value={vaccinationCard}
+            // value={vaccinationCard}
           ></input>
         </div>
         <div>
@@ -144,7 +143,7 @@ updateSeverity}}) {
         </div>
         <div>
         <label>Geolocation</label>
-        <button onclick={getLocation} >
+        <button onClick={getLocation} type="button">
           Get My Location
         </button>
       </div>

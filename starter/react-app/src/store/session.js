@@ -82,8 +82,26 @@ export const logout = () => async (dispatch) => {
 };
 
 
-export const signUp = (username, name, email, password, profilePic, allergies, vaccinationCard, additionalDetails, currentSymptoms, geolocation) => async (dispatch) => {
+export const signUp = (username, name, email, password, profilePicFile, allergies, vaccinationCardFile, additionalDetails, currentSymptoms, geolocation) => async (dispatch) => {
   console.log("___________",currentSymptoms)
+
+  const profilePicFormData = new FormData()
+  profilePicFormData.append("image", profilePicFile)
+  const profilePicResponse = await fetch('/api/images', {
+    method: 'POST',
+    body: profilePicFormData
+  })
+  const profilePic = (await profilePicResponse.json()).url
+
+  const vaccinationCardFormData = new FormData()
+  vaccinationCardFormData.append("image", vaccinationCardFile)
+  const vaccinationCardResponse = await fetch('/api/images', {
+    method: 'POST',
+    body: vaccinationCardFormData
+  })
+  const vaccinationCard = (await vaccinationCardResponse.json()).url
+
+
   const response = await fetch('/api/auth/signup', {
     method: 'POST',
     headers: {

@@ -3,8 +3,6 @@ from flask_login import login_required, current_user
 from app.models import User, db
 from app.forms import UpdateForm
 
-from app.s3_helper import (
-    upload_file_to_s3, allowed_file, get_unique_filename)
 
 user_routes = Blueprint('users', __name__)
 

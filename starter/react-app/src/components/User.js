@@ -154,9 +154,9 @@ function User() {
         </div>
         <div>
           <h3>
-            My allergies: {user.allergies[0].name} 
+            {/* My allergies: {user.allergies[0].name} 
             <br/>
-            Severity: {user.severity}
+            Severity: {user.allergies[0].severity} */}
           </h3>
         </div>
         <div>

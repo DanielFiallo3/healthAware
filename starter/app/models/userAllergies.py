@@ -17,5 +17,6 @@ class User_Allergies(db.Model):
             'id': self.id,
             'userId': self.userId,
             'allergiesId': self.allergiesId,
-            'severity': self.severity,        
+            'severity': self.severity,
+            'name': self.allergy.name        
             }

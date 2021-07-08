@@ -14,7 +14,7 @@ const SignUpForm = () => {
   const [profilePic, setProfilePic] = useState("");
   const [vaccinationCard, setVaccinationCard] = useState("");
   const [additionalDetails, setAdditionalDetails] = useState("");
-  const [currentSymptoms, setCurrentSymptoms] = useState("");
+  const [currentSymptoms, setCurrentSymptoms] = useState("Cough");
   const [geolocation, setGeolocation] = useState("");
   const [allergies, setAllergies] = useState({});
   
@@ -51,11 +51,21 @@ const SignUpForm = () => {
     setRepeatPassword(e.target.value);
   };
   const updateProfilePic = (e) => {
-    setProfilePic(e.target.value);
+    if (e.target.files) {
+      const imgFile = e.target.files[0];
+      setProfilePic(imgFile)
+    } else {
+      console.log("no image")
+    };
   };
 
   const updateVaccinationCard = (e) => {
-    setVaccinationCard(e.target.value);
+    if (e.target.files) {
+      const imgFile = e.target.files[0];
+      setVaccinationCard(imgFile);
+    } else {
+      console.log("no image")
+    }; 
   };
 
   const updateAdditionalDetails = (e) => {
