@@ -126,13 +126,13 @@ export const signUp = (username, name, email, password, profilePic, allergies, v
       newUsername, 
       newName, 
       newEmail,
-       newPassword,
-        newRepeatPassword,
-        newProfilePic,
-        newVaccinationCard,
-        newAdditionalDetails,
-        newGeolocation,
-        newAllergies
+      newPassword,
+      newRepeatPassword,
+      newProfilePic,
+      newVaccinationCard,
+      newAdditionalDetails,
+      newGeolocation,
+      newAllergies
     }),
   });
   if (response.ok) {

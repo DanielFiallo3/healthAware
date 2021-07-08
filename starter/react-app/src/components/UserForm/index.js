@@ -28,10 +28,12 @@ updateProfilePic,
 updateVaccinationCard,
 updateAdditionalDetails,
 updateCurrentSymptoms,
-updateGeolocation,
+getLocation,
 updateAllergy,
 updateSeverity}}) {
   // const [edit, setEdit] = useState(false);
+
+  
 
 
   return (
@@ -141,14 +143,11 @@ updateSeverity}}) {
             </select>
         </div>
         <div>
-          <label>Geolocation</label>
-          <input
-            type='text'
-            name='geolocation'
-            onChange={updateGeolocation}
-            value={geolocation}
-          ></input>
-        </div>
+        <label>Geolocation</label>
+        <button onclick={getLocation} >
+          Get My Location
+        </button>
+      </div>
         <div>
           <label>Additonal Details</label>
           <input
