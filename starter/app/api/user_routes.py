@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
-from flask_login import login_required
-from app.models import User
+from flask_login import login_required, current_user
+from app.models import User, db
 from app.forms import UpdateForm
 
 from app.s3_helper import (
@@ -28,21 +28,25 @@ def user(id):
 def updateProfile():
     form = UpdateForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    print(form.data)
     if form.validate_on_submit():
-        allergies=request.json["allergies"]
+        allergies=request.json["newAllergies"]
 
-        user = User.query.get(current_user.id)
-        user.name=form.data['newName'],
-        user.username = form.data['newUsername']
-        user.email=form.data['newEmail'],
-        user.profilePic=form.data['newProfilePic'],
-        user.vaccinationCard=form.data['newVaccinationCard']
-        user.geolocation=form.data['newGeolocation']
+        current_user.name=form.data['newName'],
+        current_user.username = form.data['newUsername']
+        current_user.email=form.data['newEmail'],
+        if form.data['newProfilePic']:
+            current_user.profilePic=form.data['newProfilePic']
+        if form.data['newVaccinationCard']:
+            current_user.vaccinationCard=form.data['newVaccinationCard']
+        current_user.geolocation=form.data['newGeolocation']
+        current_user.currentSymptoms=form.data['newCurrentSymptoms']
+        current_user.additionalDetails=form.data['newAdditionalDetails']
 
-        user.allergies = [(allergy, allergies[allergy]["severity"]) for allergy in allergies]
+        current_user.allergies = [(allergy, allergies[allergy]["severity"]) for allergy in allergies]
 
         db.session.commit()
-        return user.to_dict()
+        return current_user.to_dict()
     return {}
 
 @user_routes.route('/myself', methods = ['DELETE'])

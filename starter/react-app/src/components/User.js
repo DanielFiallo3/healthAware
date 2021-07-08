@@ -38,9 +38,10 @@ function User() {
     const newAdditionalDetails = additionalDetails
     const newGeolocation = geolocation
     const newAllergies = allergies
+    const newCurrentSymptoms = currentSymptoms
 
     if(newPassword === newRepeatPassword) {
-      dispatch(updatedUser({newUsername, newName, newEmail, newPassword, newRepeatPassword, newProfilePic, newVaccinationCard, newAdditionalDetails, newGeolocation, newAllergies}))
+      dispatch(updatedUser({newUsername, newName, newEmail, newPassword, newRepeatPassword, newProfilePic, newVaccinationCard, newAdditionalDetails, newGeolocation, newAllergies, newCurrentSymptoms}))
       .catch((data) => {
         setErrors(data)
       })
@@ -82,9 +83,17 @@ function User() {
     setCurrentSymptoms(e.target.value);
   };
 
-  const updateGeolocation = (e) => {
-    setGeolocation(e.target.value);
-  };
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        console.log("Latitude is :", position.coords.latitude)
+        console.log("Longitude is :", position.coords.longitude)
+        setGeolocation(`${position.coords.latitude}, ${position.coords.longitude}`)
+
+    })} else {
+      return;
+    }
+  }
 
   const updateSeverity = (allergy) => (e) => {
     setAllergies((prevAlergy) => {
@@ -152,7 +161,7 @@ function User() {
         updateVaccinationCard,
         updateAdditionalDetails,
         updateCurrentSymptoms,
-        updateGeolocation,
+        getLocation,
         updateAllergy,
         updateSeverity}}>
       <button type='submit'>Confirm Changes</button>

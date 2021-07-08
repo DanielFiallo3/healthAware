@@ -8,12 +8,12 @@ options = ["Non_threatning", "Mild", "Moderate", "Severe", "Life_threatening"]
 
 
 class UpdateForm(FlaskForm):
-    username = StringField('username', validators=[DataRequired()])
-    name = StringField('name', validators=[DataRequired()])
-    email = StringField('email', validators=[DataRequired()])
-    profilePic = StringField('profilePic')
-    vaccinationCard = StringField('vaccinationCard')
-    additionalDetails = StringField('additionalDetails')
-    currentSymptoms = SelectField('currentSymptoms', choices=symptoms)
-    geolocation = StringField('geolocation')
-    password = StringField('password', validators=[DataRequired()])
+    newUsername = StringField('newUsername', validators=[DataRequired()])
+    newName = StringField('newName', validators=[DataRequired()])
+    newEmail = StringField('newEmail', validators=[DataRequired()])
+    newProfilePic = StringField('newProfilePic')
+    newVaccinationCard = StringField('newVaccinationCard')
+    newAdditionalDetails = StringField('newAdditionalDetails')
+    newCurrentSymptoms = SelectField('newCurrentSymptoms', choices=symptoms)
+    newGeolocation = StringField('newGeolocation')
+    newPassword = StringField('newPassword', validators=[DataRequired()])

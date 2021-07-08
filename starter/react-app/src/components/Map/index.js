@@ -8,13 +8,15 @@ const MapPageA = () => {
 const UserPositionString =  useSelector(state => state.session.user.geolocation);
 
 function ChangeUserPos(StringPos) {
-    let finalObj = {lat:null, lng:null}
-    let array = StringPos.split(',')
-    
-    finalObj.lat = +array[0]
-    finalObj.lng = +array[1]
-    
-    return finalObj
+  if (!StringPos) return null
+
+  let finalObj = {lat:null, lng:null}
+  let array = StringPos.split(',')
+  
+  finalObj.lat = +array[0]
+  finalObj.lng = +array[1]
+  
+  return finalObj
 }
 
 const UserPosition = ChangeUserPos(UserPositionString)
@@ -35,8 +37,8 @@ console.log("--------------------------------------------------", process.env)
   
 const containerStyle = {
 
-    width: '2000px',
-    height: '2000px'
+    width: '1000px',
+    height: '1000px'
   };
 
 const [map, setMap] = useState(null)
@@ -46,7 +48,7 @@ const onUnmount = useCallback(function callback(map) {
   }, [])
  
  
-    return (
+    return UserPosition && (
       // Important! Always set the container height explicitly
       
       <div className="map_page__container">

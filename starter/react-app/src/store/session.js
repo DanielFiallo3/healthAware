@@ -116,7 +116,7 @@ export const signUp = (username, name, email, password, profilePic, allergies, v
     }
 }
 
-  export const updatedUser = ({newUsername, newName, newEmail, newPassword, newRepeatPassword, newProfilePic, newVaccinationCard, newAdditionalDetails, newGeolocation, newAllergies}) => async (dispatch) => {
+  export const updatedUser = ({newUsername, newName, newEmail, newPassword, newRepeatPassword, newProfilePic, newVaccinationCard, newAdditionalDetails, newGeolocation, newAllergies, newCurrentSymptoms}) => async (dispatch) => {
   const response = await fetch('/api/users/myself', {
     method: 'PUT',
     headers: {
@@ -132,7 +132,8 @@ export const signUp = (username, name, email, password, profilePic, allergies, v
       newVaccinationCard,
       newAdditionalDetails,
       newGeolocation,
-      newAllergies
+      newAllergies,
+      newCurrentSymptoms
     }),
   });
   if (response.ok) {
