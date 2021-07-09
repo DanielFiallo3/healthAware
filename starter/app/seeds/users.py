@@ -1,15 +1,4 @@
 from app.models import db, User
-{, '', '', '', '', ''
-'', '', '', '', '', '',
-'', '38.956500, -92.390047', '38.955912, -92.392493'}
-
-
-# {<option value="Fever">Fever</option>
-# <option value="Chills">Chills</option>
-# <option value="Skin_Rash">Skin Rash</option>
-# <option value="Shortness_of_Breath">Shortness of Breath</option>
-# <option value="Nauseated">Nauseated</option>
-# <option value="Chronic_Pain">Chronic Pain</option>}
 
 # Adds a demo user, you can add other users here if you want
 def seed_users():
@@ -159,17 +148,75 @@ def seed_users():
             name='Mazapan Ramos', 
             username='woofwoof', 
             email='meowmeow@gmail.com', 
-            password='password', 
-            profilePic="https://gm1.ggpht.com/yIsCwe8M-tUfMvnFmFrCP0QbBtWgUS15LmarXvW63TZDiI4zAQbUSyeec1b8dzkCvFxqaOQFTVnaDZk6ajkMRkzsCgcMvxdNTe73MpE8sxxV8ze92DWMxIeHUjNbJWNmvLEKbomaMdVaQLvaCZ-xHrCW8h6T0bs3Moa7gBRNF5jJtBSaf1FYjbGg32Kn0OYEzYbMguo82tZwiCxfGHzkUQ_PcWTfHm1cL4FGH0sVfTzH1KT8ANeC0STMx6vtCEt8hRl5kVvXGGEq5KI9M8jKbqo7pgsYggypr6XbspXuTtHxHYUtGeXvjl7JlKhmY47iODH9KJu2uFG8MODvWr8Q2a-hAW07W4V1k5sQkKCoVO0qWKhkgf3cfbpsNCuCKX8cQDdjruD57FEDr9xNdFueuRvpOaFvL3Zg-1keK5AuNw9VsuBolFItb_IWJMsruroUAuNVmHxxHOxzNazGYoQKuLqVU9WjiXirh7dUg6qD-VuBYRizb30dIVKqQEH17rcO4Aydn-T6W5q-hz3KD_U1c5YwDnabVkigxuGj-dAI7ZqQlN8Ui5S6kG0mOnHNL5RxaDcVlJIbsAdT-yq2NPqwEL7Hw1bZ43Ox2T9bZnXEU7bVylKm5R-o_1fIJyUTo6q1dt3YLuHccfUXKbMmx8enYVFCJUC1VsZRjQPGvTOqlnpjTDVH-BsIq-Oi6jBltU6OUiG8QPsovkGwhG8tS5aFI9a2h5ZX6k4HloUEONJ5jFEzzjx0M0P-nw2t6SJUC328aaY=s0-l75-ft-l75-ft", 
+            password='password',
+            profilePic='https://i.imgur.com/QKZuX5P.jpeg', 
             vaccinationCard="https://bloximages.chicago2.vip.townnews.com/greenevillesun.com/content/tncms/assets/v3/editorial/9/f5/9f58c8e7-41c2-58d7-99a8-90bddda28675/60cc8afe6a1e0.image.png",
             additionalDetails="I scoot my butt on the carpet when it is itchy.",
             currentSymptoms="Skin_Rash", 
             geolocation="38.957094, -92.392252"
             )
+    
+    ariana = User(
+        name='Ariana Cabrales', 
+        username='ariana', 
+        email='arianacabrales@aa.io', 
+        password='password', 
+        profilePic="https://scontent-ort2-2.xx.fbcdn.net/v/t1.6435-9/164917720_3373711016063751_859646971772999532_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=D7izLirP2xYAX_oTPjW&tn=T8nlsAAqK3lvClG8&_nc_ht=scontent-ort2-2.xx&oh=47fd411cf36049574a5d8d3aab6594de&oe=60ECD0DB", 
+        vaccinationCard="https://bloximages.chicago2.vip.townnews.com/greenevillesun.com/content/tncms/assets/v3/editorial/9/f5/9f58c8e7-41c2-58d7-99a8-90bddda28675/60cc8afe6a1e0.image.png",
+        additionalDetails="I am constantly fatigued and experience anxiety.",
+        currentSymptoms="none", 
+        geolocation='38.956500, -92.390047'
+        )
+
+    isabel = User(
+            name='Isabel Dominguez', 
+            username='isabeld', 
+            email='isabeldominugez@aa.io', 
+            password='password', 
+            profilePic="https://scontent-ort2-2.xx.fbcdn.net/v/t1.6435-9/42738385_1673398402770895_8492024546130395136_n.jpg?_nc_cat=104&ccb=1-3&_nc_sid=174925&_nc_ohc=DmZQANGUor0AX9UlNdd&_nc_ht=scontent-ort2-2.xx&oh=28cf84ec6aa3ebae65065dd154f53512&oe=60ED7E58", 
+            vaccinationCard="https://bloximages.chicago2.vip.townnews.com/greenevillesun.com/content/tncms/assets/v3/editorial/9/f5/9f58c8e7-41c2-58d7-99a8-90bddda28675/60cc8afe6a1e0.image.png",
+            additionalDetails="I would like to increase my energy levels and eat healthier.",
+            currentSymptoms="None", 
+            geolocation='38.955912, -92.392493'
+            )
+
+    mabel = User(
+            name='Mabel Ramos', 
+            username='mramos', 
+            email='mramos@aa.io', 
+            password='password', 
+            profilePic="https://scontent-ort2-2.xx.fbcdn.net/v/t1.18169-9/10710975_10152890194098010_4416568848699376497_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=174925&_nc_ohc=FRTKI5BRv7EAX8kHndq&_nc_ht=scontent-ort2-2.xx&oh=82f725ea8f003b6340505e5230f9e017&oe=60EBF8FD", 
+            vaccinationCard="https://bloximages.chicago2.vip.townnews.com/greenevillesun.com/content/tncms/assets/v3/editorial/9/f5/9f58c8e7-41c2-58d7-99a8-90bddda28675/60cc8afe6a1e0.image.png",
+            additionalDetails="I am feeling healthier than usual due to my increased fitness and activity levels.",
+            currentSymptoms="None", 
+            geolocation="38.95842649037838, -92.39124880209347"
+            )
+
+    audrey = User(
+            name='Audrey Hepburn', 
+            username='audhep', 
+            email='audhep@aa.io', 
+            password='password', 
+            profilePic="https://i.pinimg.com/originals/9b/20/d6/9b20d6b2dd0b22443a28851123449869.jpg", 
+            vaccinationCard="https://bloximages.chicago2.vip.townnews.com/greenevillesun.com/content/tncms/assets/v3/editorial/9/f5/9f58c8e7-41c2-58d7-99a8-90bddda28675/60cc8afe6a1e0.image.png",
+            additionalDetails="I am experiencing pain in my chest when I breath and am having trouble sleeping due to these breathing issues.",
+            currentSymptoms="shortness of breath", 
+            geolocation="38.95825337772301, -92.39106909410592"
+            )
+
+    selena = User(
+            name='Selena Gomez', 
+            username='sellyg', 
+            email='sellyg@aa.io', 
+            password='password', 
+            profilePic="https://i.pinimg.com/564x/9e/96/b1/9e96b1dee8721c791e43d2911297bb80.jpg", 
+            vaccinationCard="https://bloximages.chicago2.vip.townnews.com/greenevillesun.com/content/tncms/assets/v3/editorial/9/f5/9f58c8e7-41c2-58d7-99a8-90bddda28675/60cc8afe6a1e0.image.png",
+            additionalDetails="Feeling great!",
+            currentSymptoms="None", 
+            geolocation="38.958226263654346, -92.39161894690365"
+            )
 
     
-
-
 
     db.session.add(demo)
     db.session.add(marnie)
@@ -184,6 +231,11 @@ def seed_users():
     db.session.add(Vinny)
     db.session.add(Fabio)
     db.session.add(Mazapan)
+    db.session.add(ariana)
+    db.session.add(isabel)
+    db.session.add(mabel)
+    db.session.add(audrey)
+    db.session.add(selena)
   
     
 
