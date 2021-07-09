@@ -103,7 +103,7 @@ def seed_users():
             password='password', 
             profilePic="https://cdn.fakercloud.com/avatars/flexrs_128.jpg", 
             vaccinationCard="https://bloximages.chicago2.vip.townnews.com/greenevillesun.com/content/tncms/assets/v3/editorial/9/f5/9f58c8e7-41c2-58d7-99a8-90bddda28675/60cc8afe6a1e0.image.png",
-            additionalDetails="Please beware around me of Peanuts!!!",
+            additionalDetails="Please beware around me of Peanuts!!! Even looking at them will kill me.",
             currentSymptoms="Shortness_of_Breath", 
             geolocation="38.958496, -92.391803"
             )
@@ -115,7 +115,7 @@ def seed_users():
             password='password', 
             profilePic="https://avatars.githubusercontent.com/u/77026617?v=4", 
             vaccinationCard="https://bloximages.chicago2.vip.townnews.com/greenevillesun.com/content/tncms/assets/v3/editorial/9/f5/9f58c8e7-41c2-58d7-99a8-90bddda28675/60cc8afe6a1e0.image.png",
-            additionalDetails="Please beware around me of Peanuts!!! Even looking at them will kill me.",
+            additionalDetails="Feeling good. -Nina Simone",
             currentSymptoms="None", 
             geolocation="38.957916, -92.391900"
             )
