@@ -3,6 +3,7 @@ import { useSelector, useDispatch, useStore } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { updatedUser, deleteOneUser} from "../store/session"
 import UserForm from "./UserForm"
+import Buttons from './NavBar';
 
 function User() {
   // const [edit, setEdit] = useState(false);
@@ -151,6 +152,7 @@ function User() {
 
   return (
     <div>
+      <Buttons />
       <div>
         <div>
           <h1>

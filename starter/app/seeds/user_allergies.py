@@ -171,5 +171,5 @@ def seed_user_allergies():
 
 
 def undo_user_allergies():
-  db.session.execute('TRUNCATE userAllergiesJoin RESTART IDENTITY CASCADE')
+  db.session.execute("TRUNCATE 'userAllergiesJoin' RESTART IDENTITY CASCADE")
   db.session.commit()

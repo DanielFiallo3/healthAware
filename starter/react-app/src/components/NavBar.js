@@ -5,7 +5,7 @@ import LogoutButton from './auth/LogoutButton';
 import { login } from '../store/session';
 
 
-const NavBar = () => {
+const Buttons = () => {
   const dispatch = useDispatch();
 
   let loggedInUser = useSelector(state => state.session.user)
@@ -14,70 +14,77 @@ const NavBar = () => {
     dispatch(login('demo@aa.io', 'password'))
   }
 
+
   return (
-    <nav>
-      <ul>
+    <div>
+      <div>
 
-        {loggedInUser
+        <div>
+          {loggedInUser
+          ?
+            <div>
+              <NavLink to='/' exact={true} activeClassName='active'>
+                Home
+              </NavLink>
+            </div>
+          :null}
+        </div>
+
+        <div>
+          {loggedInUser === null
+          ?
+            <div>
+              <NavLink className="loginBtn" to='/sign-up' exact={true} activeClassName='active'>
+                New User?
+              </NavLink>
+            </div>
+          :null}
+        </div>
+
+        <div>
+          {loggedInUser
+          ?
+            <div>
+              <NavLink to='/profile' exact={true} activeClassName='active'>
+                My Profile
+              </NavLink>
+            </div>
+          :null}
+        </div>
+
+        <div>
+          {loggedInUser
+          ?
+            <div>
+              <LogoutButton />
+            </div>
+          :null}
+        </div>
+
+        <div>
+          {loggedInUser === null
+          ?
+            <div>
+              <button className="loginBtn" onClick={(demoLogin)}>
+                Demo login
+              </button>
+            </div>
+          :null}
+        </div>
+
+
+        {/* {loggedInUser === null
         ?
-          <li>
-            <NavLink to='/' exact={true} activeClassName='active'>
-              Home
-            </NavLink>
-          </li>
-        :null}
-
-
-        {loggedInUser === null
-        ?
-          <li>
+          <div>
             <NavLink to='/login' exact={true} activeClassName='active'>
               Login
             </NavLink>
-          </li>
-        :null}
+          </div>
+        :null} */}
 
-
-        {loggedInUser === null
-        ?
-          <li>
-            <NavLink to='/sign-up' exact={true} activeClassName='active'>
-              Sign Up
-            </NavLink>
-          </li>
-        :null}
-
-
-        {loggedInUser
-        ?
-          <li>
-            <NavLink to='/profile' exact={true} activeClassName='active'>
-              My Profile
-            </NavLink>
-          </li>
-        :null}
-
-
-        {loggedInUser
-        ?
-          <li>
-            <LogoutButton />
-          </li>
-        :null}
-
-        {loggedInUser === null
-        ?
-          <li>
-            <button onClick={(demoLogin)}>
-              Demo login
-            </button>
-          </li>
-        :null}
-
-
-      </ul>
-    </nav>
+      </div>
+    </div>
   );
 }
 
-export default NavBar;
+export default Buttons;

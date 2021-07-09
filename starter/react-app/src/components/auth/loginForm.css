@@ -1,0 +1,51 @@
+.loginMasterDiv{
+    text-align: center;
+    /* border-radius: 10.0000000001px; */
+    background: #ebcbcb;
+    padding: 20px; 
+    width: 700px;
+    height: 200px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.loginFormInput{
+    background-color: #DCDCDC;
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.loginFormInput:hover{
+    transition-property: box-shadow;
+    transition-duration: .3s;
+    box-shadow: 0 0 10px 5px rgba(190, 84, 84, 0.605);
+}
+
+.loginBtn{
+    width: 16%;
+    background-color: #0093E9;
+    color: white;
+    padding: 8px;
+    margin: 7px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.loginBtn:hover{
+    transition-property: background-color;
+    transition-duration: .3s;
+    background-color: #0066a3 ;
+}
+
