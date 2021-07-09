@@ -164,7 +164,9 @@ function User() {
         <div>
           <img src={user.vaccinationCard} alt="vaxCard"></img>
         </div>
-        <div>
+        {listOfAllergies
+        ?
+          <div>
           <h3>
             My allergies: {listOfAllergies.map(each => (
               <ul>
@@ -178,6 +180,11 @@ function User() {
             ))}
           </h3>
         </div>
+        :
+        <h3>
+          No Allergies
+        </h3>
+        }
         <div>
           <h3>
             Current Symptoms: {user.currentSymptoms}

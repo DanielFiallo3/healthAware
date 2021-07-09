@@ -14,7 +14,7 @@ const SignUpForm = () => {
   const [profilePic, setProfilePic] = useState("");
   const [vaccinationCard, setVaccinationCard] = useState("");
   const [additionalDetails, setAdditionalDetails] = useState("");
-  const [currentSymptoms, setCurrentSymptoms] = useState("Cough");
+  const [currentSymptoms, setCurrentSymptoms] = useState("None");
   const [geolocation, setGeolocation] = useState("");
   const [allergies, setAllergies] = useState({});
   

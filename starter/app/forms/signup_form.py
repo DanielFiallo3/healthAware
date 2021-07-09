@@ -3,7 +3,7 @@ from wtforms import StringField, SelectField
 from wtforms.validators import DataRequired, Email, ValidationError
 from app.models import User
 
-symptoms = ["Cough", "Fever", "Chills", "Skin_Rash", "Shortness_of_Breath", "Nauseated", "Chronic_Pain"]
+symptoms = ["None", "Cough", "Fever", "Chills", "Skin_Rash", "Shortness_of_Breath", "Nauseated", "Chronic_Pain"]
 options = ["Non_threatning", "Mild", "Moderate", "Severe", "Life_threatening"]
 
 def user_exists(form, field):

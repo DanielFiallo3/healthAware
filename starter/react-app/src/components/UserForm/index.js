@@ -132,6 +132,7 @@ updateSeverity}}) {
             name='currentSymptoms'
             onChange={updateCurrentSymptoms}
             value={currentSymptoms}>
+              <option value="None">None</option>
               <option value="Cough">Cough</option>
               <option value="Fever">Fever</option>
               <option value="Chills">Chills</option>
