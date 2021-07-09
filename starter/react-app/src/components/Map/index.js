@@ -1,7 +1,8 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
 import { useSelector } from 'react-redux';
 import Buttons from '../NavBar';
+import MarkerPoint from './marker';
 
 const MapPageA = () => {
     
@@ -87,18 +88,7 @@ const onUnmount = useCallback(function callback(map) {
           </Marker>
   
           {users.map(each => (
-            <Marker 
-                  position={ChangeUserPos(each.geolocation)}
-                  title={each.name}
-                  streetView={false}> 
-  
-                  <InfoWindow position={ChangeUserPos(each.geolocation)} >
-                    <div>
-                      <span>{each.name}</span>
-                    </div>
-                  </InfoWindow>
-                  
-            </Marker>
+            <MarkerPoint user={each} ChangeUserPos={ChangeUserPos}/>  
           ))}
       
           </GoogleMap>}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import Allergies from "../Allergies"
+import './index.css'
 
 function UserForm({onSubmit, 
 children,
@@ -36,98 +37,66 @@ updateSeverity}}) {
 
 
   return (
-    <form onSubmit={onSubmit}>
-      <div>
-          {errors.map((error, ind) => (
-            <div key="error">{error}</div>
-          ))}
-        </div>
+    <div className="masterUserFormDiv">
+      <form onSubmit={onSubmit}>
         <div>
-          <label>Name</label>
-          <input
-            type='text'
-            name='name'
-            onChange={updateName}
-            value={name}
-          ></input>
-        </div>
+            {errors.map((error, ind) => (
+              <div key="error">{error}</div>
+            ))}
+          </div>
+          <div>
+            <label className="labell">Name</label>
+            <input
+              className='inputss'
+              type='text'
+              name='name'
+              onChange={updateName}
+              value={name}
+            ></input>
+          </div>
+          <div>
+            <label className="labell">User Name</label>
+            <input
+              className='inputss'
+              type='text'
+              name='username'
+              onChange={updateUsername}
+              value={username}
+            ></input>
+          </div>
+          <div>
+            <label className="labell">Email</label>
+            <input
+              type='text'
+              name='email'
+              onChange={updateEmail}
+              value={email}
+              className='inputss'
+            ></input>
+          </div>
         <div>
-          <label>User Name</label>
-          <input
-            type='text'
-            name='username'
-            onChange={updateUsername}
-            value={username}
-          ></input>
-        </div>
-        <div>
-          <label>Email</label>
-          <input
-            type='text'
-            name='email'
-            onChange={updateEmail}
-            value={email}
-          ></input>
-        </div>
-        <div>
-          <label>Password</label>
+          <label className="labell">Password</label>
           <input
             type='password'
             name='password'
             onChange={updatePassword}
             value={password}
-          ></input>
+            className='inputss'
+            ></input>
         </div>
         <div>
-          <label>Repeat Password</label>
+          <label className="labell">Repeat Password</label>
           <input
             type='password'
             name='repeat_password'
             onChange={updateRepeatPassword}
             value={repeatPassword}
             required={true}
-          ></input>
+            className='inputss'
+            ></input>
         </div>
         <div>
-          <label>Profile Picture</label>
-          <input
-            type='file'
-            name='profilePic'
-            // accept="image/*"
-            onChange={updateProfilePic}
-            // value={profilePic}
-          ></input>
-        </div>
-        <div> 
-          <label>Allergies:</label>
-          {["Peanuts", 
-          "Animal Dander", 
-          "Gluten",
-          "Shellfish", 
-          "Dairy", 
-          "Pollen/Dust/Mold" 
-          ].map(each => (
-            <Allergies 
-            allergen={each} 
-            onCheck={updateAllergy(each)}
-            checked={!!allergies[each]}
-            updateSeverity={updateSeverity(each)}
-            severity={allergies[each] && allergies[each].severity}
-            />
-          ))}
-        </div>
-        <div>
-          <label>Vaccination Card</label>
-          <input
-            type='file'
-            name='vaxCard'
-            // accept='pdf/*'
-            onChange={updateVaccinationCard}
-            // value={vaccinationCard}
-          ></input>
-        </div>
-        <div>
-          <label>Current Symptom</label>
+          <label className="labell">Current Symptom</label>
           <select
             name='currentSymptoms'
             onChange={updateCurrentSymptoms}
@@ -143,22 +112,65 @@ updateSeverity}}) {
             </select>
         </div>
         <div>
-        <label>Geolocation</label>
-        <button onClick={getLocation} type="button">
-          Get My Location
-        </button>
-      </div>
-        <div>
-          <label>Additonal Details</label>
+          <label className="labell">Additonal Details</label>
           <input
             type='text'
             name='additionalDetails'
             onChange={updateAdditionalDetails}
             value={additionalDetails}
+            className='inputss'
           ></input>
-          {children}
           </div>
-    </form>
+          <div>
+            <label className="labell">Geolocation</label>
+            <button className="locationButton" onClick={getLocation} type="button">
+              Get My Location
+            </button>
+          </div>
+          <div>
+            <label className="labell">Profile Picture</label>
+            <input
+              type='file'
+              name='profilePic'
+              // accept="image/*"
+              onChange={updateProfilePic}
+              // value={profilePic}
+            ></input>
+          </div>
+          <div>
+            <label className="labell">Vaccination Card</label>
+            <input
+              type='file'
+              name='vaxCard'
+              // accept='pdf/*'
+              onChange={updateVaccinationCard}
+              // value={vaccinationCard}
+            ></input>
+          </div>
+          <br/>
+          <div> 
+            <label className="labell">Allergies:</label>
+            {["Peanuts", 
+            "Animal Dander", 
+            "Gluten",
+            "Shellfish", 
+            "Dairy", 
+            "Pollen/Dust/Mold" 
+            ].map(each => (
+              <Allergies 
+              allergen={each} 
+              onCheck={updateAllergy(each)}
+              checked={!!allergies[each]}
+              updateSeverity={updateSeverity(each)}
+              severity={allergies[each] && allergies[each].severity}
+              />
+            ))}
+          </div>
+          <br/>
+          {children}
+      </form>
+
+    </div>
 
   )
 }

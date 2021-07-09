@@ -123,35 +123,39 @@ const SignUpForm = () => {
   }
 
   return (
-      < UserForm onSubmit={onSignUp} setters={{errors, 
-          username, 
-          name, 
-          email, 
-          password, 
-          repeatPassword, 
-          profilePic, 
-          vaccinationCard, 
-          additionalDetails, 
-          currentSymptoms, 
-          geolocation,
-          allergies,
-          setErrors,
-          updateUsername,
-          updateName,
-          updateEmail,
-          updatePassword,
-          updateRepeatPassword,
-          updateProfilePic,
-          updateVaccinationCard,
-          updateAdditionalDetails,
-          updateCurrentSymptoms,
-          getLocation,
-          updateAllergy,
-          updateSeverity}}>
+    <div className="loginMasterDiv">
+      <img className="loginLogo" src="https://i.imgur.com/RipAJxp.png" alt="logo.png"></img>
+
+        < UserForm onSubmit={onSignUp} setters={{errors, 
+            username, 
+            name, 
+            email, 
+            password, 
+            repeatPassword, 
+            profilePic, 
+            vaccinationCard, 
+            additionalDetails, 
+            currentSymptoms, 
+            geolocation,
+            allergies,
+            setErrors,
+            updateUsername,
+            updateName,
+            updateEmail,
+            updatePassword,
+            updateRepeatPassword,
+            updateProfilePic,
+            updateVaccinationCard,
+            updateAdditionalDetails,
+            updateCurrentSymptoms,
+            getLocation,
+            updateAllergy,
+            updateSeverity}}>
+                
               
-            
-      <button type='submit'>Sign Up</button>
-      </ UserForm >
+          <button type='submit'>Sign Up</button>
+        </ UserForm >
+    </div>
   );
 };
 

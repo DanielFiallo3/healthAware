@@ -1,0 +1,22 @@
+.masterUserFormDiv{
+    border: 1px solid;
+}
+
+.labell{
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: black;
+}
+
+.inputss{
+        width: 55%;
+        min-height: 25px;
+        border: 0;
+        font-size: 1rem;
+        letter-spacing: .15rem;
+        font-family: "Arimo";
+        margin-top: 5px;
+        color: black;
+        border-radius: 4px;
+}
