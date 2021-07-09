@@ -147,7 +147,6 @@ function User() {
   }, [user])
 
   let listOfAllergies = user.allergies
-  console.log(listOfAllergies)
   
 
   return (
