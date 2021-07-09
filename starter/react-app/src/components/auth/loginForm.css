@@ -1,17 +1,29 @@
 .loginMasterDiv{
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    /* position: absolute; */
+    /* width: 980px; */
+    
+}
+
+.loginFormDiv{
     /* border-radius: 10.0000000001px; */
     background: #ebcbcb;
-    padding: 20px; 
-    width: 700px;
-    height: 200px;
+    width: 600px;
+    height: 200px; 
+    align-items: center;
     margin: auto;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    text-align: center;
+    padding: 10px;
+    /* display: flex; */
+    /* justify-content: center;
+    flex-direction: column; */
+   
 }
+
 
 .loginFormInput{
     background-color: #DCDCDC;
@@ -36,16 +48,34 @@
     background-color: #0093E9;
     color: white;
     padding: 8px;
-    margin: 7px;
+    /* margin: 5px; */
     border: none;
     border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
+    text-align: center;
+    float: left;
+    margin-top: 30px;
+    margin-left: 75px;
 }
 
 .loginBtn:hover{
     transition-property: background-color;
     transition-duration: .3s;
     background-color: #0066a3 ;
+}
+
+.loginLogo{
+    height: 200px;
+    width: 200px;
+    margin: auto;
+    border-radius: 2000px;
+    padding: 15px;
+    margin-bottom: 150px;
+    transition: transform 2s;
+}
+
+.loginLogo:hover{
+    transform: scale(1.5);
 }
 

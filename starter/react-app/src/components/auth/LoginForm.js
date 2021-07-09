@@ -35,41 +35,45 @@ const LoginForm = () => {
 
   return (
     <div className="loginMasterDiv">
-      <form onSubmit={onLogin}>
-        <div>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
-        </div>
-        <div>
-          <div >
-            <input
-              name='email'
-              type='text'
-              placeholder='Email'
-              value={email}
-              autoComplete="off"
-              onChange={updateEmail}
-              className="loginFormInput"
-            />
+      <img className="loginLogo" src="https://i.imgur.com/RipAJxp.png" alt="logo.png"></img>
+      <div className="loginFormDiv">
+        <form onSubmit={onLogin}>
+          <div>
+            {errors.map((error, ind) => (
+              <div key={ind}>{error}</div>
+            ))}
           </div>
           <div>
-            <input
-              name='password'
-              type='password'
-              placeholder='Password'
-              value={password}
-              autoComplete="off"
-              onChange={updatePassword}
-              className="loginFormInput"
-            />
+            <div >
+              <input
+                name='email'
+                type='text'
+                placeholder='Email'
+                value={email}
+                autoComplete="off"
+                onChange={updateEmail}
+                className="loginFormInput"
+              />
+            </div>
+            <div>
+              <input
+                name='password'
+                type='password'
+                placeholder='Password'
+                value={password}
+                autoComplete="off"
+                onChange={updatePassword}
+                className="loginFormInput"
+              />
+            </div>
           </div>
-        </div>
-        <div>
-          < Buttons />
-          <button className="loginBtn" type='submit'>Login</button>
-        </div>
-      </form>
+          <div className="loginButtonDiv">
+            < Buttons />
+            <button className="loginBtn" type='submit'>Login</button>
+          </div>
+        </form>
+      </div>
+
     </div>
   );
 };
