@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
 import { useSelector } from 'react-redux';
 
@@ -6,7 +6,20 @@ import { useSelector } from 'react-redux';
 const MapPageA = () => {
     
 const UserPositionString =  useSelector(state => state.session.user.geolocation);
+const currentUser = useSelector(state => state.session.user)
 
+const [users, setUsers] = useState([]);
+
+useEffect(() => {
+  async function fetchData() {
+    const response = await fetch('/api/users/');
+    const responseData = await response.json();
+    setUsers(responseData.users);
+  }
+  fetchData();
+}, []);
+
+console.log("999999999999999999999999999999999999999", users)
 
 
 function ChangeUserPos(StringPos) {
@@ -55,25 +68,36 @@ const onUnmount = useCallback(function callback(map) {
       
       <div className="map_page__container">
  
-        <div style={{ height: '900px', width: '900px' }}>
-        {isLoaded && <GoogleMap
-          mapContainerStyle={containerStyle}
-          zoom={8}
-          center={UserPosition}
-          onUnmount={onUnmount}
-          >
-        <Marker 
-              position={UserPosition}
-              title="Ananya Hans"
-              streetView={false}> 
+      <div style={{ height: '100px', width: '100%' }}>
+      {isLoaded && <GoogleMap
+        mapContainerStyle={containerStyle}
+        zoom={19}
+        center={UserPosition}
+        onUnmount={onUnmount}
+        mapTypeId= 'satellite'
+        >
+          
+        <Marker
+        position={UserPosition}
+        title={currentUser.name}
+        streetView={false}>
 
-              {/* <InfoWindow position={{currentPosition}} >
-                <div>
-                  <span>Ananya Hans</span>
-                </div>
-              </InfoWindow> */}
-              
         </Marker>
+
+        {users.map(each => (
+          <Marker 
+                position={ChangeUserPos(each.geolocation)}
+                title={each.name}
+                streetView={false}> 
+
+                <InfoWindow position={ChangeUserPos(each.geolocation)} >
+                  <div>
+                    <span>{each.name}</span>
+                  </div>
+                </InfoWindow>
+                
+          </Marker>
+        ))}
     
         </GoogleMap>}
         </div>
