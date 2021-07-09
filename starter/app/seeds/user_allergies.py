@@ -1,4 +1,4 @@
-from app.models import db, User_Allergies
+from app.models import db, User_Allergies, User, Allergies
 
 def seed_user_allergies():
   demo_user = User.query.get(1)
