@@ -7,6 +7,8 @@ const MapPageA = () => {
     
 const UserPositionString =  useSelector(state => state.session.user.geolocation);
 
+
+
 function ChangeUserPos(StringPos) {
   if (!StringPos) return null
 
