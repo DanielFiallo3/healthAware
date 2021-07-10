@@ -181,16 +181,15 @@ function User() {
         ?
           <div>
           <h3>
-            My allergies: {listOfAllergies.map(each => (
-              <ul>
+            My Allergy: {listOfAllergies.map(each => (
+              <div>
+                {each.name}
+                <br/>
                 <div>
-                  {each.name}
-                    <div>
-                      Severity: {each.severity}
-                    </div>
+                  Severity: {each.severity}
                 </div>
-              </ul>
-            ))}
+              </div>
+              ))}
           </h3>
         </div>
         :

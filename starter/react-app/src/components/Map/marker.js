@@ -17,7 +17,31 @@ return(
                     {showInfoWindow && <InfoWindow
                         position={user.geolocation}>
                         <div>
-                            <h1>InfoWindow</h1>
+                            <h3>{user.name}</h3>
+                            <img src={user.profilePic} alt="proPic"></img>
+                            <div>
+                            {user.allergies
+                                ?
+                                <div>
+                                <h3>
+                                    Allergies: {user.allergies.map(each => (
+                                    <ul>
+                                        <div>
+                                        {each.name}
+                                            <div>
+                                            Severity: {each.severity}
+                                            </div>
+                                        </div>
+                                    </ul>
+                                    ))}
+                                </h3>
+                                </div>
+                                :
+                                <h3>
+                                No Allergies
+                                </h3>
+                                }
+                            </div>
                         </div>
                     </InfoWindow>} 
                    
