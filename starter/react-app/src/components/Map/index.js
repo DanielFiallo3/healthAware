@@ -3,6 +3,7 @@ import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-map
 import { useSelector } from 'react-redux';
 import Buttons from '../NavBar';
 import MarkerPoint from './marker';
+import "./index.css"
 
 const MapPageA = () => {
     
@@ -53,8 +54,8 @@ console.log("--------------------------------------------------", process.env)
   
 const containerStyle = {
 
-    width: '1000px',
-    height: '1000px'
+    width: '100%',
+    height: '950px'
   };
 
 const [map, setMap] = useState(null)
@@ -69,34 +70,25 @@ const onUnmount = useCallback(function callback(map) {
       <div>
         <Buttons />
 
-        <div className="map_page__container">
+        <div className="theMap">
    
-        <div style={{ height: '100px', width: '100%' }}>
-        {isLoaded && <GoogleMap
-          mapContainerStyle={containerStyle}
-          zoom={19}
-          center={UserPosition}
-          onUnmount={onUnmount}
-          mapTypeId= 'satellite'
-          >
-            
-          <Marker
-          position={UserPosition}
-          title={currentUser.name}
-          streetView={false}>
-  
-          </Marker>
-  
-          {users.map(each => (
-            <MarkerPoint user={each} ChangeUserPos={ChangeUserPos}/>  
-          ))}
-      
-          </GoogleMap>}
+          {isLoaded && <GoogleMap
+            mapContainerStyle={containerStyle}
+            zoom={19}
+            center={UserPosition}
+            onUnmount={onUnmount}
+            mapTypeId= 'hybrid'
+            >
+              
+    
+            {users.map(each => (
+              <MarkerPoint user={each} ChangeUserPos={ChangeUserPos}/>  
+            ))}
+        
+            </GoogleMap>}
           </div>
          
-        </div>
-      </div>
-      
+        </div>      
     );
           
 }

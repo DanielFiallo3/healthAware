@@ -177,7 +177,7 @@ def seed_users():
             vaccinationCard="https://bloximages.chicago2.vip.townnews.com/greenevillesun.com/content/tncms/assets/v3/editorial/9/f5/9f58c8e7-41c2-58d7-99a8-90bddda28675/60cc8afe6a1e0.image.png",
             additionalDetails="I would like to increase my energy levels and eat healthier.",
             currentSymptoms="None", 
-            geolocation='38.955912, -92.392493'
+            geolocation='38.95724268586851, -92.39058326844975'
             )
 
     mabel = User(

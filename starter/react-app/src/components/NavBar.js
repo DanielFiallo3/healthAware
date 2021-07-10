@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import { login } from '../store/session';
-import "../components/auth/loginForm.css"
 
 
 const Buttons = () => {
@@ -19,11 +18,10 @@ const Buttons = () => {
   return (
     <div>
       <div>
-
         <div>
           {loggedInUser
           ?
-            <div>
+            <div class="homeLogoLink">
               <NavLink to='/' exact={true} activeClassName='active'>
                 Home
               </NavLink>
