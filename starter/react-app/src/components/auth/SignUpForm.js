@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import UserForm from '../UserForm'
+import './signUpForm.css'
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -153,7 +154,7 @@ const SignUpForm = () => {
             updateSeverity}}>
                 
               
-          <button type='submit'>Sign Up</button>
+          <button className="signUpBottom" type='submit'>Sign Me Up</button>
         </ UserForm >
     </div>
   );
