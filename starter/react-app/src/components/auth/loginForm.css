@@ -9,6 +9,20 @@
     
 }
 
+@keyframes slideUp {
+    0% {
+        -webkit-transform: translateY(100%);
+        transform: translateY(300%);
+        visibility: visible;
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+
+    }
+}
+
 .loginFormDiv{
     border-radius: 10.0000000001px;
     background: #ebcbcb;
@@ -18,6 +32,8 @@
     margin: auto;
     text-align: center;
     padding: 10px;
+    animation: slideUp 2000ms ease;
+
     /* display: flex; */
     /* justify-content: center;
     flex-direction: column; */
@@ -72,7 +88,7 @@
     100% {
         background-color: #cfc9e1;
         color: #4a3b76;
-        transform: scale(1.25)
+        transform: scale(.5)
     }
 }
 

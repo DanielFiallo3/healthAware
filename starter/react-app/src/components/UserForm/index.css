@@ -1,8 +1,24 @@
-.masterUserFormDiv::after{
-    border: 1px solid;
-    content: "";
-    display: table;
-    clear: both;
+.masterUserFormDiv{
+    background-color: #e7c5c5;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    box-shadow: 9px 13px 25px 0px rgba(0, 0, 0, 0.5);
+    animation: slideUp 2000ms ease;
+}
+
+@keyframes slideUp {
+    0% {
+        -webkit-transform: translateY(100%);
+        transform: translateY(300%);
+        visibility: visible;
+    }
+
+    100% {
+        -webkit-transform: translateY(100%);
+        transform: translateY(0);
+
+    }
 }
 
 .labell{
