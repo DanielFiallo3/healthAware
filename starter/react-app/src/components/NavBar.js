@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import { login } from '../store/session';
+import './navbar.css'
 
 
 const Buttons = () => {
@@ -17,13 +18,13 @@ const Buttons = () => {
 
   return (
     <div>
-      <div>
+      <div className='THEDIV'>
         <div>
           {loggedInUser
           ?
             <div class="homeLogoLink">
               <NavLink to='/' exact={true} activeClassName='active'>
-                Home
+                  <img src="https://i.imgur.com/RipAJxp.png" alt="logoPic" className="thePic1"></img>
               </NavLink>
             </div>
           :null}
@@ -43,9 +44,9 @@ const Buttons = () => {
         <div>
           {loggedInUser
           ?
-            <div>
+            <div class="profilePicButton">
               <NavLink to='/profile' exact={true} activeClassName='active'>
-                My Profile
+                <img src={loggedInUser.profilePic} alt="picButton" className="thePic2"></img>
               </NavLink>
             </div>
           :null}
@@ -54,7 +55,7 @@ const Buttons = () => {
         <div>
           {loggedInUser
           ?
-            <div>
+            <div className="thePic3">
               <LogoutButton />
             </div>
           :null}

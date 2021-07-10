@@ -36,9 +36,11 @@ function ChangeUserPos(StringPos) {
   return finalObj
 }
 
+
 const UserPosition = ChangeUserPos(UserPositionString)
 
 console.log("---------", (UserPosition))
+
 
 //This sets the center of the map. This must be set BEFORE the map loads
    
@@ -67,9 +69,10 @@ const onUnmount = useCallback(function callback(map) {
  
     return UserPosition && (
       // Important! Always set the container height explicitly
-      <div>
-        <Buttons />
+      <div className="MASTTTER">
 
+        <Buttons />
+        
         <div className="theMap">
    
           {isLoaded && <GoogleMap
@@ -79,11 +82,14 @@ const onUnmount = useCallback(function callback(map) {
             onUnmount={onUnmount}
             mapTypeId= 'hybrid'
             >
+
               
     
             {users.map(each => (
               <MarkerPoint user={each} ChangeUserPos={ChangeUserPos}/>  
-            ))}
+              ))}
+
+              
         
             </GoogleMap>}
           </div>

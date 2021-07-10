@@ -1,0 +1,21 @@
+
+.theBOX{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+}
+
+.InfoWindow{
+    background-color: aqua;
+}
+
+.markerProf{
+    width: 200px;
+    height: 200px;
+}
+
+.allergiesBox{
+    border: 1px solid;
+}
+

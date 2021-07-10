@@ -1,0 +1,28 @@
+.LOGLOG{
+    height: 38px;
+    width: 100px;    
+    color: #cfc9e1;
+    background-color: #4a3b76;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.LOGLOG:hover{
+    animation-name: btn-hov;
+    animation-duration: 550ms;
+    animation-fill-mode: forwards;
+    background-color: #0066a3 ;
+}
+
+@keyframes btn-hov {
+    100% {
+        background-color: #cfc9e1;
+        color: #4a3b76;
+        transform: scale(1.25)
+    }
+}

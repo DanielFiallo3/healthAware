@@ -1,5 +1,11 @@
+.MASTTTER{
+    position:relative
+}
+
 .theMap{
     height: 100%;
     width: 100%;
-    padding-top: 0;
+    /* position: unset;  */
+    /* transform: translateY(-60%);
+    z-index: -4; */
 }
