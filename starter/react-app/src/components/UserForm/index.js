@@ -46,7 +46,7 @@ updateSeverity}}) {
   return (
     <div className="masterUserFormDiv">
       <form onSubmit={onSubmit}>
-        <div>
+        <div className="errorsDiv">
             {errors.map((error, ind) => (
               <div key="error">{error}</div>
             ))}
@@ -105,6 +105,7 @@ updateSeverity}}) {
         <div>
           <label className="labell">Current Symptom</label>
           <select
+            className='inputss'
             name='currentSymptoms'
             onChange={updateCurrentSymptoms}
             value={currentSymptoms}>
@@ -125,12 +126,11 @@ updateSeverity}}) {
             name='additionalDetails'
             onChange={updateAdditionalDetails}
             value={additionalDetails}
-            className='inputss'
-          ></input>
+           ></input>
           </div>
           <div>
             <label className="labell">Geolocation</label>
-            <button onClick={onLocationClick} type="button" disabled={buttonA}>
+            <button onClick={onLocationClick} type="button" disabled={buttonA} className='inputss'>
               Get My Location
             </button>
           </div>

@@ -13,6 +13,6 @@ body{
     /* Center and scale the image nicely */
     background-repeat: no-repeat;
 
-    font-family: "Comic Sans MS", cursive;
+    font: 400 13.3333px Arial;
     
 }

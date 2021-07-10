@@ -1,5 +1,8 @@
-.masterUserFormDiv{
+.masterUserFormDiv::after{
     border: 1px solid;
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .labell{
@@ -7,16 +10,20 @@
     font-size: 12px;
     letter-spacing: 2px;
     color: black;
+    float: left;
+    width: 45%;
+    margin-bottom: 5px;
+
 }
 
 .inputss{
-        width: 55%;
+        width: 45%;
         min-height: 25px;
         border: 0;
         font-size: 1rem;
         letter-spacing: .15rem;
         font-family: "Arimo";
-        margin-top: 5px;
+        margin-bottom: 5px;
         color: black;
         border-radius: 4px;
 }
