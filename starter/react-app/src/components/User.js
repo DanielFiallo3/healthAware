@@ -6,7 +6,7 @@ import UserForm from "./UserForm"
 import Buttons from './NavBar';
 
 function User() {
-  // const [edit, setEdit] = useState(false);
+  const [edit, setEdit] = useState(false);
   const user = useSelector(state => state.session.user)
 
   const [errors, setErrors] = useState([]);
@@ -25,10 +25,19 @@ function User() {
 
   const dispatch = useDispatch();
 
+  const setEditTrue = () => {
+    setEdit(true)
+  }
+
+  const setEditFalse = () => {
+    setEdit(false)
+  }
+
 
 
   const onUpdateForm = (event) => {
     event.preventDefault()
+    setEditFalse()
     const newUsername = username
     const newName = name
     const newEmail = email
@@ -40,6 +49,9 @@ function User() {
     const newGeolocation = geolocation
     const newAllergies = allergies
     const newCurrentSymptoms = currentSymptoms
+    
+
+    
 
     if(newPassword === newRepeatPassword) {
       dispatch(updatedUser({newUsername, newName, newEmail, newPassword, newRepeatPassword, newProfilePicFile, newVaccinationCardFile, newAdditionalDetails, newGeolocation, newAllergies, newCurrentSymptoms}))
@@ -150,7 +162,7 @@ function User() {
   let listOfAllergies = user.allergies
   
 
-  return (
+  return !edit ?(
     <div>
       <Buttons />
       <div>
@@ -198,37 +210,46 @@ function User() {
             {user.additionalDetails}
           </h3>
         </div>
+        <div>
+          <button onClick={setEditTrue}> Edit Profile </button>
+        </div>
       </div>
+    </div>
+      ):(
       <div>
-        <UserForm onSubmit={onUpdateForm} setters={{errors, 
-            username, 
-            name, 
-            email, 
-            password, 
-            repeatPassword, 
-            profilePic, 
-            vaccinationCard, 
-            additionalDetails, 
-            currentSymptoms, 
-            geolocation,
-            allergies,
-            setErrors,
-            updateUsername,
-            updateName,
-            updateEmail,
-            updatePassword,
-            updateRepeatPassword,
-            updateProfilePic,
-            updateVaccinationCard,
-            updateAdditionalDetails,
-            updateCurrentSymptoms,
-            getLocation,
-            updateAllergy,
-            updateSeverity}}>
-          <button type='submit'>Confirm Changes</button>
-        </ UserForm >
-      </div>
+        <div>
+          <UserForm onSubmit={onUpdateForm} setters={{errors, 
+              username, 
+              name, 
+              email, 
+              password, 
+              repeatPassword, 
+              profilePic, 
+              vaccinationCard, 
+              additionalDetails, 
+              currentSymptoms, 
+              geolocation,
+              allergies,
+              setErrors,
+              updateUsername,
+              updateName,
+              updateEmail,
+              updatePassword,
+              updateRepeatPassword,
+              updateProfilePic,
+              updateVaccinationCard,
+              updateAdditionalDetails,
+              updateCurrentSymptoms,
+              getLocation,
+              updateAllergy,
+              updateSeverity}}>
+            <button type='submit'>Confirm Changes</button>
+            <button type='button' onClick={setEditFalse}>Cancel Changes</button>
+          </ UserForm >
+        </div>
     </div>
   )
 }
+
+
 export default User;

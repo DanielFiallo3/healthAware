@@ -34,6 +34,13 @@ updateAllergy,
 updateSeverity}}) {
   // const [edit, setEdit] = useState(false);
 
+  const [buttonA, setButtonA] = useState(false)
+
+  const onLocationClick = () => {
+    getLocation()
+    setButtonA(true)
+  }
+
 
 
   return (
@@ -123,7 +130,7 @@ updateSeverity}}) {
           </div>
           <div>
             <label className="labell">Geolocation</label>
-            <button className="locationButton" onClick={getLocation} type="button">
+            <button onClick={onLocationClick} type="button" disabled={buttonA}>
               Get My Location
             </button>
           </div>
