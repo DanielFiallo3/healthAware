@@ -1,0 +1,20 @@
+.myContainer{
+    position: absolute;
+    z-index: 999;
+    bottom: 25px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.footerLink,
+.footerHub{
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+}
+
+.footerLinkbtn,
+.footerHubbtn{
+    border-radius: 100px;
+}

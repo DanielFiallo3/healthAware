@@ -1,0 +1,183 @@
+/* reference for some buttons comes from https://speckyboy.com/custom-file-upload-fields/ */
+
+.masterUserFormDiv{
+    background-color: #e7c5c5;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    box-shadow: 9px 13px 25px 0px rgba(0, 0, 0, 0.5);
+    animation: slideUp 2000ms ease;
+    padding: 15px;
+}
+
+.bucket{
+    padding: 15px;
+}
+
+@keyframes slideUp {
+    0% {
+        -webkit-transform: translateY(100%);
+        transform: translateY(300%);
+        visibility: visible;
+    }
+
+    100% {
+        -webkit-transform: translateY(100%);
+        transform: translateY(0);
+
+    }
+}
+
+.signUpForm{
+    width: 100%;
+}
+
+.inputss{
+        width: 100%;
+        min-height: 25px;
+        border: 0;
+        font-size: 1rem;
+        letter-spacing: .15rem;
+        margin-bottom: 5px;
+        color: black;
+        border-radius: 4px;
+}
+
+.inputss:hover{
+    transition-property: box-shadow;
+    transition-duration: .3s;
+    box-shadow: 0 0 10px 5px rgba(190, 84, 84, 0.605);
+}
+
+.labell{
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: black;
+    /* float: left;
+    width: 45%;
+    margin-bottom: 5px;
+    text-decoration: none; */
+}
+
+
+
+.nameUserEmail {
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+
+}
+
+.nameUserEmail > div{
+    width: 30%;
+    margin: 5px;
+
+}
+
+.passwordsDiv{
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+}
+
+.passwordsDiv > div{
+    width: 45%;
+    margin: 5px;
+
+}
+
+.sympDetails{
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+}
+
+.sympDetails > div{
+    width: 45%;
+    margin: 5px;
+}
+
+.allergiesDiv{
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+    padding-left: 7px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.geoProVax{
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+}
+
+.geoProVax > div{
+    width: 45%;
+    margin: 5px;
+}
+
+#geolocation{
+    justify-content: space-between;
+    display: flex;
+    width: 55%;
+    padding: 5px;
+
+    
+    color: #cfc9e1;
+    background-color: #9382c5;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-align: center;
+    
+}
+
+#geolocation:disabled{
+    background:rgb(181, 194, 194);
+}
+
+
+/* 
+#username{
+    justify-content: space-between;
+    display: flex;
+    width: 40%;
+}
+
+#email{
+    justify-content: space-between;
+    display: flex;
+    width: 0%;
+}
+
+#password{
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+}
+
+#repeatPassword{
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+}
+
+#currentSymptoms{
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+}
+
+#additionalDetails{
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+}
+
+/*  */
+ 

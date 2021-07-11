@@ -1,0 +1,47 @@
+.THEDIV{
+    position: absolute;
+    z-index: 999;
+    height: 0;
+    right: 20px;
+}
+
+
+.thePic1,
+.thePic2{    
+    height: 100px;
+    width: 100px;
+    border-radius: 100px;
+    margin: 10px;
+}
+
+
+.thePic1:hover{
+    animation-name: btnn-hov;
+    animation-duration: 550ms;
+    animation-fill-mode: forwards;
+    transition-property: box-shadow;
+    transition-duration: .3s;
+    box-shadow: 0 0 10px 15px rgba(143, 64, 64, 0.3);
+}
+
+.thePic2:hover{
+    animation-name: btnn-hov;
+    animation-duration: 550ms;
+    animation-fill-mode: forwards;
+    transition-property: box-shadow;
+    transition-duration: .5s;
+    box-shadow: 0 0 10px 15px rgba(143, 64, 64, 0.3);
+}
+
+.thePic3{
+    padding-top: 15px;
+    margin: 10px;
+}
+    
+
+@keyframes btnn-hov {
+    100% {
+        transform: scale(1.25)
+    }
+}
+

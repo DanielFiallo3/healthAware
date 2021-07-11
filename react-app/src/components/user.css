@@ -1,0 +1,109 @@
+.profContain{
+    transform: translateY(50%);
+    margin: auto;
+    /* height: 10%; */
+    width: 350px;
+    padding: 20px;
+    border-radius: 5px;
+    background: #ebcbcb;
+    position: relative;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5); 
+}
+
+.profilePicture{
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: -25px;
+    left: -25px;
+    border-radius: 50%;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+}
+
+.userInfo{
+    margin-bottom: 20px;
+}
+
+.IMVAX{
+    width: 150px;
+    height: 150px;
+    font-size: 2rem;
+    border: none;
+    margin: auto;
+    transition: transform 1.5s;
+    margin-left: 90px;
+}
+
+.IMVAX:hover{
+    transform: scale(4);
+}
+
+.MYNAME{
+    text-align: center;
+    margin-bottom: 20px;
+    color:rgb(211, 120, 17)
+}
+
+.EDITBUTTON{
+    margin-left: 100px;
+    height: 38px;   
+    color: #cfc9e1;
+    background-color: #4a3b76;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-align: center; 
+}
+
+.EDITBUTTON:hover{
+    animation-name: btn-hov;
+    animation-duration: 550ms;
+    animation-fill-mode: forwards;
+    background-color: #0066a3 ;
+}
+
+.fianlBtn{
+    margin-left: 100px;
+    height: 38px;   
+    color: #cfc9e1;
+    background-color: #4a3b76;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-align: center; 
+}
+
+.fianlBtn:hover{
+    animation-name: btn-hov;
+    animation-duration: 550ms;
+    animation-fill-mode: forwards;
+    background-color: #0066a3 ;
+}
+
+.fianlBtn2{
+    margin-left: 400px;
+    height: 38px;   
+    color: #cfc9e1;
+    background-color: #4a3b76;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-align: center;
+}
+
+
+.fianlBtn2:hover{
+    animation-name: btn-hov;
+    animation-duration: 550ms;
+    animation-fill-mode: forwards;
+    background-color: #0066a3 ;
+}
