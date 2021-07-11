@@ -1,7 +1,7 @@
 .profContain{
     transform: translateY(50%);
     margin: auto;
-    height: 425px;
+    /* height: 10%; */
     width: 350px;
     padding: 20px;
     border-radius: 5px;
@@ -32,7 +32,6 @@
     margin: auto;
     transition: transform 1.5s;
     margin-left: 90px;
-
 }
 
 .IMVAX:hover{
@@ -60,6 +59,49 @@
 }
 
 .EDITBUTTON:hover{
+    animation-name: btn-hov;
+    animation-duration: 550ms;
+    animation-fill-mode: forwards;
+    background-color: #0066a3 ;
+}
+
+.fianlBtn{
+    margin-left: 100px;
+    height: 38px;   
+    color: #cfc9e1;
+    background-color: #4a3b76;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-align: center; 
+}
+
+.fianlBtn:hover{
+    animation-name: btn-hov;
+    animation-duration: 550ms;
+    animation-fill-mode: forwards;
+    background-color: #0066a3 ;
+}
+
+.fianlBtn2{
+    margin-left: 400px;
+    height: 38px;   
+    color: #cfc9e1;
+    background-color: #4a3b76;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-align: center;
+}
+
+
+.fianlBtn2:hover{
     animation-name: btn-hov;
     animation-duration: 550ms;
     animation-fill-mode: forwards;

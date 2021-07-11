@@ -169,7 +169,7 @@ function User() {
         <div className="profContain">
           <div>
             <h1 className="MYNAME">
-              {user.name}'s Profile Page
+              {user.name}
             </h1>
           </div>
           <div>
@@ -219,7 +219,8 @@ function User() {
       </div>
       ):(
       <div>
-        <div>
+        <div className="loginMasterDiv">
+        <img className="loginLogo" src="https://i.imgur.com/RipAJxp.png" alt="logo.png"></img>
           <UserForm onSubmit={onUpdateForm} setters={{errors, 
               username, 
               name, 
@@ -245,8 +246,8 @@ function User() {
               getLocation,
               updateAllergy,
               updateSeverity}}>
-            <button type='submit'>Confirm Changes</button>
-            <button type='button' onClick={setEditFalse}>Cancel Changes</button>
+            <button type='submit' className="fianlBtn">Confirm Changes</button>
+            <button type='button' className="fianlBtn2" onClick={setEditFalse}>Cancel Changes</button>
           </ UserForm >
         </div>
     </div>
