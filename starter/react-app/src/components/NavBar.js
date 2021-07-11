@@ -30,16 +30,6 @@ const Buttons = () => {
           :null}
         </div>
 
-        <div>
-          {loggedInUser === null
-          ?
-            <div>
-              <NavLink className="loginBtn" id="NewUser" to='/sign-up' exact={true} activeClassName='active'>
-                New User?
-              </NavLink>
-            </div>
-          :null}
-        </div>
 
         <div>
           {loggedInUser
@@ -61,27 +51,37 @@ const Buttons = () => {
           :null}
         </div>
 
-        <div>
-          {loggedInUser === null
-          ?
-            <div>
-              <button className="loginBtn" onClick={(demoLogin)}>
-                Demo login
-              </button>
-            </div>
-          :null}
-        </div>
 
 
         {/* {loggedInUser === null
         ?
+        <div>
+        <NavLink to='/login' exact={true} activeClassName='active'>
+        Login
+        </NavLink>
+        </div>
+      :null} */}
+
+      </div>
+      <div>
+        {loggedInUser === null
+        ?
           <div>
-            <NavLink to='/login' exact={true} activeClassName='active'>
-              Login
+            <NavLink className="loginBtn" id="NewUser" to='/sign-up' exact={true} activeClassName='active'>
+              New User?
             </NavLink>
           </div>
-        :null} */}
-
+        :null}
+      </div>
+      <div>
+        {loggedInUser === null
+        ?
+          <div>
+            <button className="loginBtn" onClick={(demoLogin)}>
+              Demo login
+            </button>
+          </div>
+        :null}
       </div>
     </div>
   );

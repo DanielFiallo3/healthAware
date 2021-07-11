@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { updatedUser, deleteOneUser} from "../store/session"
 import UserForm from "./UserForm"
 import Buttons from './NavBar';
+import './user.css'
 
 function User() {
   const [edit, setEdit] = useState(false);
@@ -165,55 +166,57 @@ function User() {
   return !edit ?(
     <div>
       <Buttons />
-      <div>
-        <div>
-          <h1>
-            {user.name}'s Profile Page
-          </h1>
-        </div>
-        <div>
-          <img src={user.profilePic} alt="profilePic"></img>
-        </div>
-        <div>
-          <img src={user.vaccinationCard} alt="vaxCard"></img>
-        </div>
-        {listOfAllergies
-        ?
+        <div className="profContain">
           <div>
-          <h3>
-            My Allergy: {listOfAllergies.map(each => (
+            <h1 className="MYNAME">
+              {user.name}'s Profile Page
+            </h1>
+          </div>
+          <div>
+            <img className="profilePicture" src={user.profilePic} alt="profilePic"></img>
+          </div>
+          <div className="userInfo">
+            {listOfAllergies
+            ?
               <div>
-                {each.name}
-                <br/>
-                <div>
-                  Severity: {each.severity}
-                </div>
-              </div>
-              ))}
-          </h3>
-        </div>
-        :
-        <h3>
-          No Allergies
-        </h3>
-        }
-        <div>
-          <h3>
-            Current Symptoms: {user.currentSymptoms}
-          </h3>
-        </div>
-        <div>
-          <h3>
-            Additional Details:
-            <br/> 
-            {user.additionalDetails}
-          </h3>
-        </div>
-        <div>
-          <button onClick={setEditTrue}> Edit Profile </button>
+              <h3>
+                My Allergy: {listOfAllergies.map(each => (
+                  <div>
+                    {each.name}
+                    <br/>
+                    <div>
+                      Severity: {each.severity}
+                    </div>
+                  </div>
+                  ))}
+              </h3>
+            </div>
+            :
+            <h3>
+              No Allergies
+            </h3>
+            }
+            <div>
+              <h3>
+                Current Symptoms: {user.currentSymptoms}
+              </h3>
+            </div>
+            <div>
+              <h3>
+                Additional Details:
+                <br/> 
+                {user.additionalDetails}
+              </h3>
+            </div>
+          <div >
+            <img className="IMVAX" src={user.vaccinationCard} alt="vaxCard" ></img>
+          </div>
+          </div>
+          <div>
+            <button className="EDITBUTTON" onClick={setEditTrue}> Edit Profile </button>
+          </div>
         </div>
       </div>
-    </div>
       ):(
       <div>
         <div>
