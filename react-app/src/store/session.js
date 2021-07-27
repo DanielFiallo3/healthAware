@@ -83,7 +83,7 @@ export const logout = () => async (dispatch) => {
 
 
 export const signUp = (username, name, email, password, profilePicFile, allergies, vaccinationCardFile, additionalDetails, currentSymptoms, geolocation) => async (dispatch) => {
-  console.log("___________",currentSymptoms)
+  // console.log("___________",currentSymptoms)
 
   const profilePicFormData = new FormData()
   profilePicFormData.append("image", profilePicFile)

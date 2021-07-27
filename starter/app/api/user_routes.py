@@ -29,7 +29,7 @@ def updateProfile():
     if form.validate_on_submit():
         allergies=request.json["newAllergies"]
 
-        print("_________________________________________________________________________",request.json)
+        # print("_________________________________________________________________________",request.json)
 
         current_user.name=form.data['newName'],
         current_user.username = form.data['newUsername']

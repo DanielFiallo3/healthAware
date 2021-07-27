@@ -1,5 +1,5 @@
-import React, { useState, useCallback, useEffect, useRef } from 'react';
-import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
+import React, { useState, useCallback, useEffect } from 'react';
+import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import { useSelector } from 'react-redux';
 import Buttons from '../NavBar';
 import MarkerPoint from './marker';
@@ -8,7 +8,7 @@ import "./index.css"
 const MapPageA = () => {
     
 const UserPositionString =  useSelector(state => state.session.user.geolocation);
-const currentUser = useSelector(state => state.session.user)
+// const currentUser = useSelector(state => state.session.user)
 
 const [users, setUsers] = useState([]);
 
@@ -21,7 +21,7 @@ useEffect(() => {
   fetchData();
 }, []);
 
-console.log("999999999999999999999999999999999999999", users)
+// console.log("999999999999999999999999999999999999999", users)
 
 
 function ChangeUserPos(StringPos) {
@@ -39,7 +39,7 @@ function ChangeUserPos(StringPos) {
 
 const UserPosition = ChangeUserPos(UserPositionString)
 
-console.log("---------", (UserPosition))
+// console.log("---------", (UserPosition))
 
 
 //This sets the center of the map. This must be set BEFORE the map loads
@@ -52,7 +52,7 @@ const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.REACT_APP_MAPS_KEY
 })
 
-console.log("--------------------------------------------------", process.env)
+// console.log("--------------------------------------------------", process.env)
   
 const containerStyle = {
 

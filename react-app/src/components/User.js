@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch, useStore } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { useSelector, useDispatch} from 'react-redux';
+// import { Redirect } from 'react-router-dom';
 import { updatedUser, deleteOneUser} from "../store/session"
 import UserForm from "./UserForm"
 import Buttons from './NavBar';
@@ -111,8 +111,8 @@ function User() {
   const getLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
-        console.log("Latitude is :", position.coords.latitude)
-        console.log("Longitude is :", position.coords.longitude)
+        // console.log("Latitude is :", position.coords.latitude)
+        // console.log("Longitude is :", position.coords.longitude)
         setGeolocation(`${position.coords.latitude}, ${position.coords.longitude}`)
 
     })} else {
