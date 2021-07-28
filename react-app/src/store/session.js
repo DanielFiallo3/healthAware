@@ -101,6 +101,8 @@ export const signUp = (username, name, email, password, profilePicFile, allergie
   })
   const vaccinationCard = (await vaccinationCardResponse.json()).url
 
+  console.log("---------------------------------", geolocation, typeof(geolocation))
+
 
   const response = await fetch('/api/auth/signup', {
     method: 'POST',
@@ -122,6 +124,7 @@ export const signUp = (username, name, email, password, profilePicFile, allergie
   });
     if (response.ok) {
       const data = await response.json();
+      console.log("MARKERRRRRRRRRR", JSON.stringify(data))
       dispatch(setUser(data))
       return null;
     } else if (response.status < 500) {

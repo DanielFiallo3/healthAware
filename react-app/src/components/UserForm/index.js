@@ -1,4 +1,4 @@
-import React, {useState } from 'react';
+import React, {useState, useRef } from 'react';
 // import { useSelector, useDispatch } from 'react-redux';
 // import { Redirect } from 'react-router-dom';
 import Allergies from "../Allergies"
@@ -40,8 +40,6 @@ updateSeverity}}) {
     getLocation()
     setButtonA(true)
   }
-
-
 
   return (
     <div className="masterUserFormDiv">
@@ -170,6 +168,9 @@ updateSeverity}}) {
               <button id='geolocation' onClick={onLocationClick} type="button" disabled={buttonA}>
                 Get My Location
               </button>
+              <p>
+                *If not clicked, will default to "38.957333, -92.391361"
+              </p>
             </div>
             <div>
               <label className="labell">Profile Picture</label>

@@ -16,7 +16,7 @@ const SignUpForm = () => {
   const [vaccinationCard, setVaccinationCard] = useState("");
   const [additionalDetails, setAdditionalDetails] = useState("");
   const [currentSymptoms, setCurrentSymptoms] = useState("None");
-  const [geolocation, setGeolocation] = useState("");
+  const [geolocation, setGeolocation] = useState("38.957333, -92.391361");
   const [allergies, setAllergies] = useState({});
   
   const user = useSelector(state => state.session.user);
