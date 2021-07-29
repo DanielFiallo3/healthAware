@@ -1,10 +1,23 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Marker, InfoWindow } from '@react-google-maps/api'
 import "./marker.css"
 
 const MarkerPoint = ({user, ChangeUserPos}) => {
 
     const [showInfoWindow, setShowInfoWindow] = useState(false);
+
+    // useEffect(() => {
+    //     console.log(showInfoWindow)
+    //     const closeInfoWindow = () => {
+    //         console.log("anything", showInfoWindow) 
+    //         showInfoWindow && setShowInfoWindow(false)
+    //     }
+    //     showInfoWindow && document.addEventListener("click", console.log("not theother oe", showInfoWindow) || closeInfoWindow)
+    //     return () => {
+    //         document.removeEventListener("click", closeInfoWindow)
+    //     }
+    // }, [showInfoWindow])
+
 
 return(
     <>   
@@ -13,7 +26,7 @@ return(
                   title={user.name}
                   visible={true}
                   streetView={false}
-                  onClick={() => setShowInfoWindow((s) => !s)}
+                  onClick={() => setShowInfoWindow(s => !s)}
                   >
                  
                     {showInfoWindow && <InfoWindow
@@ -28,12 +41,12 @@ return(
                                 <div>
                                     <h3>
                                         <div className="allergiesBox">
-                                            Allergies: {user.allergies.map(each => (
+                                            Allergies: {Object.entries(user.allergies).filter(each => each[1]).map(each => (
                                             <ul>
                                                 <div className="eachAllergy">
-                                                    {each.name}
+                                                    {each[0]}
                                                         <div>
-                                                        Severity: {each.severity}
+                                                        Severity: {each[1]}
                                                         </div>
                                                 </div>
                                             </ul>
