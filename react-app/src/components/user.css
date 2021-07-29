@@ -107,3 +107,24 @@
     animation-fill-mode: forwards;
     background-color: #0066a3 ;
 }
+
+.fianlBtn3{
+    margin-left: 400px;
+    height: 38px;   
+    color: #cfc9e1;
+    background-color: #4a3b76;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.fianlBtn3:hover{
+    animation-name: btn-hov;
+    animation-duration: 550ms;
+    animation-fill-mode: forwards;
+    background-color: #0066a3 ;
+}

@@ -34,6 +34,11 @@ function User() {
     setEdit(false)
   }
 
+  const deleteUser = () => {
+    dispatch(deleteOneUser(user.id))
+    window.location.reload()
+  }
+
 
 
   const onUpdateForm = (event) => {
@@ -157,6 +162,7 @@ function User() {
       setRepeatPassword(user.repeatPassword)
       setEmail(user.email)
       setAdditionalDetails(user.additionalDetails)
+      setAllergies(user.allergies)
       setCurrentSymptoms(user.currentSymptoms)
       setGeolocation(user.geolocation)
     }
@@ -250,6 +256,15 @@ function User() {
               updateSeverity}}>
             <button type='submit' className="fianlBtn">Confirm Changes</button>
             <button type='button' className="fianlBtn2" onClick={setEditFalse}>Cancel Changes</button>
+            {user.email !== "demo@aa.io" 
+            ?
+              <button type='button' className="fianlBtn3" onClick={deleteUser}>Delete User</button>
+            :
+            <div>
+              <button type='button' className="fianlBtn3" disabled={true}>Delete User</button>
+              <p>*Demo User Not Allowed to be Deleted</p>
+            </div>
+            }  
           </ UserForm >
         </div>
     </div>

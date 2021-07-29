@@ -192,7 +192,7 @@ export const signUp = (username, name, email, password, profilePicFile, allergie
 
 
 export const deleteOneUser = (userId) => async (dispatch) => {
-  const res = await fetch('/api/auth/user', {
+  const res = await fetch('/api/users/myself', {
     method: "DELETE",
   });
   if (res.ok) {
