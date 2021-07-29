@@ -79,7 +79,7 @@ def sign_up():
             geolocation= form.data['geolocation'],
             password=form.data['password'],
         )
-        user.allergies = [(allergy, allergies[allergy]["severity"]) for allergy in allergies]
+        user.allergies = [(allergy, allergies[allergy]) for allergy in allergies]
 
         db.session.add(user)
         db.session.commit()

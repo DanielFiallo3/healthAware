@@ -94,9 +94,7 @@ const SignUpForm = () => {
     setAllergies((prevAlergy) => {
       return {
         ...prevAlergy,
-        [allergy]: {
-          severity: e.target.value
-        }
+        [allergy]: e.target.value
       }
     });
   };
@@ -111,9 +109,7 @@ const SignUpForm = () => {
           }
       } else return {
         ...prevAlergy,
-        [allergy]: {
-          severity: "Non_threatening"
-        }
+        [allergy]: "Non_threatening"
       }
     });
   };
@@ -131,7 +127,7 @@ const SignUpForm = () => {
             username, 
             name, 
             email, 
-            password, 
+            newPassword: password, 
             repeatPassword, 
             profilePic, 
             vaccinationCard, 
@@ -143,7 +139,7 @@ const SignUpForm = () => {
             updateUsername,
             updateName,
             updateEmail,
-            updatePassword,
+            updateNewPassword: updatePassword,
             updateRepeatPassword,
             updateProfilePic,
             updateVaccinationCard,

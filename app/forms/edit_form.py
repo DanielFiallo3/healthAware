@@ -16,4 +16,6 @@ class UpdateForm(FlaskForm):
     newAdditionalDetails = StringField('newAdditionalDetails')
     newCurrentSymptoms = SelectField('newCurrentSymptoms', choices=symptoms)
     newGeolocation = StringField('newGeolocation')
-    newPassword = StringField('newPassword', validators=[DataRequired()])
+    newPassword = StringField('newPassword')
+    currentPassword = StringField('currentPassword')
+

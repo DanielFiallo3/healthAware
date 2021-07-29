@@ -26,7 +26,14 @@ def user(id):
 def updateProfile():
     form = UpdateForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    print(form, '-------------------------------------------')
     if form.validate_on_submit():
+        print(form, '-------------------------------------------2')
+
+        if form.data['newPassword']:
+            if not current_user.check_password(form.data['currentPassword']):
+                return {error: "Incorrect Password"}
+
         allergies=request.json["newAllergies"]
 
         # print("_________________________________________________________________________",request.json)
@@ -42,8 +49,10 @@ def updateProfile():
         current_user.currentSymptoms=form.data['newCurrentSymptoms']
         current_user.additionalDetails=form.data['newAdditionalDetails']
 
+        
+
         if request.json['newAllergies']:
-            current_user.allergies = [(allergy, allergies[allergy]["severity"]) for allergy in allergies]
+            current_user.allergies = [(allergy, allergies[allergy]) for allergy in allergies]
 
         db.session.commit()
         return current_user.to_dict()

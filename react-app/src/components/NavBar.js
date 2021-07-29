@@ -77,7 +77,7 @@ const Buttons = () => {
         {loggedInUser === null
         ?
           <div>
-            <button className="loginBtn" onClick={(demoLogin)}>
+            <button className="loginBtn" onClick={(demoLogin)} type="button">
               Demo login
             </button>
           </div>

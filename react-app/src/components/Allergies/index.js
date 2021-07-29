@@ -9,8 +9,8 @@ export default function Allergies({allergen, onCheck, checked, updateSeverity, s
                 <input
                     type='checkbox'
                     name='allergies'
-                    onChange={onCheck}
-                    value={checked}
+                    onClick={onCheck}
+                    checked={checked}
                 ></input>
             </div>
 

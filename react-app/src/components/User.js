@@ -14,7 +14,7 @@ function User() {
   const [username, setUsername] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
   const [profilePic, setProfilePic] = useState("");
   const [vaccinationCard, setVaccinationCard] = useState("");
@@ -22,6 +22,7 @@ function User() {
   const [currentSymptoms, setCurrentSymptoms] = useState("");
   const [geolocation, setGeolocation] = useState("");
   const [allergies, setAllergies] = useState({});
+  const [currentPassword, setCurrentPassword] = useState("");
   
 
   const dispatch = useDispatch();
@@ -47,7 +48,6 @@ function User() {
     const newUsername = username
     const newName = name
     const newEmail = email
-    const newPassword = password
     const newRepeatPassword = repeatPassword
     const newProfilePicFile = profilePic
     const newVaccinationCardFile = vaccinationCard
@@ -80,8 +80,12 @@ function User() {
   };
 
   const updatePassword = (e) => {
-    setPassword(e.target.value);
+    setNewPassword(e.target.value);
   };
+
+  const updateCurrentPassword = (e) => {
+    setCurrentPassword(e.target.value)
+  }
 
   const updateRepeatPassword = (e) => {
     setRepeatPassword(e.target.value);
@@ -125,13 +129,13 @@ function User() {
     }
   }
 
+  console.log(allergies,"======================================")
+
   const updateSeverity = (allergy) => (e) => {
     setAllergies((prevAlergy) => {
       return {
         ...prevAlergy,
-        [allergy]: {
-          severity: e.target.value
-        }
+        [allergy]: e.target.value
       }
     });
   };
@@ -146,9 +150,7 @@ function User() {
           }
       } else return {
         ...prevAlergy,
-        [allergy]: {
-          severity: "Non_threatening"
-        }
+        [allergy]: "Non_threatening"
       }
     });
   };
@@ -158,8 +160,6 @@ function User() {
     if (user && !user.errors) {
       setName(user.name)
       setUsername(user.username)
-      setPassword(user.password)
-      setRepeatPassword(user.repeatPassword)
       setEmail(user.email)
       setAdditionalDetails(user.additionalDetails)
       setAllergies(user.allergies)
@@ -168,9 +168,8 @@ function User() {
     }
   }, [user])
 
-  let listOfAllergies = user.allergies
+  const listOfAllergies = Object.entries(user.allergies).filter(each => each[1])
   
-
   return !edit ?(
     <div>
       <Buttons />
@@ -184,16 +183,16 @@ function User() {
             <img className="profilePicture" src={user.profilePic} alt="profilePic"></img>
           </div>
           <div className="userInfo">
-            {listOfAllergies
+            {listOfAllergies.length
             ?
               <div>
               <h3>
-                My Allergy: {listOfAllergies.map(each => (
+                My Allergies: {(listOfAllergies).map(each => (
                   <div>
-                    {each.name}
+                    {each[0]}
                     <br/>
                     <div>
-                      Severity: {each.severity}
+                      Severity: {each[1]}
                     </div>
                   </div>
                   ))}
@@ -233,7 +232,7 @@ function User() {
               username, 
               name, 
               email, 
-              password, 
+              newPassword, 
               repeatPassword, 
               profilePic, 
               vaccinationCard, 
@@ -241,10 +240,12 @@ function User() {
               currentSymptoms, 
               geolocation,
               allergies,
+              currentPassword,
               setErrors,
               updateUsername,
               updateName,
               updateEmail,
+              updateCurrentPassword,
               updatePassword,
               updateRepeatPassword,
               updateProfilePic,

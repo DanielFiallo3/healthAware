@@ -137,7 +137,7 @@ export const signUp = (username, name, email, password, profilePicFile, allergie
     }
 }
 
-  export const updatedUser = ({newUsername, newName, newEmail, newPassword, newRepeatPassword, newProfilePicFile, newVaccinationCardFile, newAdditionalDetails, newGeolocation, newAllergies, newCurrentSymptoms}) => async (dispatch) => {
+  export const updatedUser = ({newUsername, newName, newEmail, newPassword, newRepeatPassword, newProfilePicFile, newVaccinationCardFile, newAdditionalDetails, newGeolocation, newAllergies, newCurrentSymptoms, currentPassword}) => async (dispatch) => {
     
   const newprofilePicFormData = new FormData()
   newprofilePicFormData.append("image", newProfilePicFile)
@@ -172,7 +172,8 @@ export const signUp = (username, name, email, password, profilePicFile, allergie
       newAdditionalDetails,
       newGeolocation,
       newAllergies,
-      newCurrentSymptoms
+      newCurrentSymptoms,
+      currentPassword
     }),
   });
   if (response.ok) {

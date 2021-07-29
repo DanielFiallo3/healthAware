@@ -27,7 +27,7 @@ class User(db.Model, UserMixin):
 
     @property
     def allergies(self):
-        return [userAllergy.to_dict() for userAllergy in self.userAllergiesJoin]
+        return {userAllergy.allergy.name: userAllergy.severity for userAllergy in self.userAllergiesJoin}
 
     @allergies.setter
     def allergies(self, allergies):
