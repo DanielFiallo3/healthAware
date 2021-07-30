@@ -56,7 +56,7 @@ function UserForm({ onSubmit,
               <div key="error">{error}</div>
             ))}
           </div>
-          {loggedInUser.email !== "demo@aa.io"
+          {loggedInUser && loggedInUser.email !== "demo@aa.io"
           ?
           <div>
             <div className="nameUserEmail">

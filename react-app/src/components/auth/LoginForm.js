@@ -35,8 +35,13 @@ const LoginForm = () => {
 
   return (
     <div>
-      <div>
-        
+      <div className="Infor">
+        <h1>
+          What is Health Aware?
+        </h1>
+        <p>
+          Health Aware is a self-concept. As a User, you can see the health of the people around you. "Your Health, Our Priority"
+        </p>
       </div>
       <div className="loginMasterDiv">
         <img className="loginLogo" src="https://i.imgur.com/RipAJxp.png" alt="logo.png"></img>
