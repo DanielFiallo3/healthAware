@@ -62,8 +62,6 @@ def sign_up():
     """
     # print(request.json['severity'])
     # print(request.json['currentSymptoms'])
-
-
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
