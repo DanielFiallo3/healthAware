@@ -26,9 +26,9 @@ def user(id):
 def updateProfile():
     form = UpdateForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print(form, '-------------------------------------------')
+    print(form.validate_on_submit(), '((9999-------------------------------------------')
     if form.validate_on_submit():
-        print(form, '-------------------------------------------2')
+        # print(form, '-------------------------------------------2')
 
         if form.data['newPassword']:
             if not current_user.check_password(form.data['currentPassword']):

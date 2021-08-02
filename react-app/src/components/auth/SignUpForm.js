@@ -12,8 +12,8 @@ const SignUpForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
-  const [profilePic, setProfilePic] = useState("");
-  const [vaccinationCard, setVaccinationCard] = useState("");
+  const [profilePic, setProfilePic] = useState(null);
+  const [vaccinationCard, setVaccinationCard] = useState(null);
   const [additionalDetails, setAdditionalDetails] = useState("");
   const [currentSymptoms, setCurrentSymptoms] = useState("None");
   const [geolocation, setGeolocation] = useState("38.957333, -92.391361");

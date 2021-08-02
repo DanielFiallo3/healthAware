@@ -9,13 +9,13 @@ image_routes = Blueprint("images", __name__)
 @image_routes.route("", methods=["POST"])
 def upload_image():
     if "image" not in request.files:
-        return {"errors": "image required"}, 400
+        return {"url": ""}
 
     
     image = request.files["image"]
 
     if not allowed_file(image.filename):
-        return {"errors": "file type not permitted"}, 400
+        return {"url": ""}
     
     image.filename = get_unique_filename(image.filename)
 
@@ -26,34 +26,43 @@ def upload_image():
         # if the dictionary doesn't have a url key
         # it means that there was an error when we tried to upload
         # so we send back that error message
-        return upload, 400
+        return {"url": ""}
 
-    url = upload["url"]
+    url = upload["url"] if "url" in upload else ""
     # flask_login allows us to get the current user from the request
     return {"url": url}
 
-@image_routes.route("", methods=["PUT"])
-def upload_newImage():
-    if "image" not in request.files:
-        return {"errors": "image required"}, 400
+
+
+
+
+
+
 
     
-    image = request.files["image"]
 
-    if not allowed_file(image.filename):
-        return {"errors": "file type not permitted"}, 400
+# @image_routes.route("", methods=["PUT"])
+# def upload_newImage():
+#     if "image" not in request.files:
+#         return {"errors": "image required"}, 400
+
     
-    image.filename = get_unique_filename(image.filename)
+#     image = request.files["image"]
 
-    upload = upload_file_to_s3(image)
-    # print('this is upload _____A+FIia=sdgadfgsdfh', upload)
+#     if not allowed_file(image.filename):
+#         return {"errors": "file type not permitted"}, 400
+    
+#     image.filename = get_unique_filename(image.filename)
 
-    if "url" not in upload:
-        # if the dictionary doesn't have a url key
-        # it means that there was an error when we tried to upload
-        # so we send back that error message
-        return upload, 400
+#     upload = upload_file_to_s3(image)
+#     # print('this is upload _____A+FIia=sdgadfgsdfh', upload)
 
-    url = upload["url"]
-    # flask_login allows us to get the current user from the request
-    return {"url": url}
+#     if "url" not in upload:
+#         # if the dictionary doesn't have a url key
+#         # it means that there was an error when we tried to upload
+#         # so we send back that error message
+#         return upload, 400
+
+#     url = upload["url"]
+#     # flask_login allows us to get the current user from the request
+#     return {"url": url}

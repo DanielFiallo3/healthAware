@@ -24,7 +24,7 @@ function UserForm({ onSubmit,
     updateUsername,
     updateName,
     updateEmail,
-    updatePassword,
+    updateNewPassword,
     updateRepeatPassword,
     updateProfilePic,
     updateVaccinationCard,
@@ -58,96 +58,6 @@ function UserForm({ onSubmit,
           </div>
           {loggedInUser && loggedInUser.email === "demo@aa.io"
           ?
-            <div>
-              <div className="nameUserEmail">
-                <div>
-                  <label className="labell">Name</label>
-                  <input
-                    className='inputss'
-                    type='text'
-                    name='name'
-                    onChange={updateName}
-                    value={name}
-                    id="name"
-                  ></input>
-                </div>
-                <div>
-                  <label className="labell">User Name</label>
-                  <input
-                    className='inputss'
-                    type='text'
-                    name='username'
-                    onChange={updateUsername}
-                    value={username}
-                    id="username"
-                  ></input>
-                </div>
-                <div>
-                  <label className="labell">Email</label>
-                  <input
-                    type='text'
-                    name='email'
-                    onChange={updateEmail}
-                    value={email}
-                    className='inputss'
-                    id="email"
-                  ></input>
-                </div>
-              </div>
-              <div className="passwordsDiv">
-                {updateCurrentPassword
-                ?
-                  <div>
-                      <label className="labell">Current Password</label>
-                      <input
-                        type='password'
-                        name='current_password'
-                        onChange={updateCurrentPassword}
-                        value={currentPassword}
-                        className='inputss'
-                        id="currentPassword"
-                      ></input>
-                  </div>
-                :null
-                }
-                <div>
-                  {updateCurrentPassword
-                  ?
-                    <label className="labell">New Password</label>
-                  :
-                    <label className="labell">Password</label>
-                  }
-                  <input
-                    type='password'
-                    name='password'
-                    onChange={updatePassword}
-                    value={newPassword}
-                    className='inputss'
-                    id="password"
-                    disabled={updateCurrentPassword && !currentPassword}
-                  ></input>
-                </div>
-                <div>
-                {updateCurrentPassword
-                  ?
-                  <label className="labell">Repeat New Password</label>
-                  :
-                  <label className="labell">Repeat Password</label>
-                  }
-                  <input
-                    type='password'
-                    name='repeat_password'
-                    onChange={updateRepeatPassword}
-                    value={repeatPassword}
-                    required={true}
-                    className='inputss'
-                    id="repeatPassword"
-                    disabled={updateCurrentPassword && !currentPassword}
-                  ></input>
-                </div>
-              </div>
-            </div>
-          :
             <div>
               <div className="nameUserEmail">
                 <div>
@@ -214,7 +124,97 @@ function UserForm({ onSubmit,
                   <input
                     type='password'
                     name='password'
-                    onChange={updatePassword}
+                    onChange={updateNewPassword}
+                    value={newPassword}
+                    className='inputss'
+                    id="password"
+                    disabled={updateCurrentPassword && !currentPassword}
+                  ></input>
+                </div>
+                <div>
+                {updateCurrentPassword
+                  ?
+                  <label className="labell">Repeat New Password</label>
+                  :
+                  <label className="labell">Repeat Password</label>
+                  }
+                  <input
+                    type='password'
+                    name='repeat_password'
+                    onChange={updateRepeatPassword}
+                    value={repeatPassword}
+                    required={true}
+                    className='inputss'
+                    id="repeatPassword"
+                    disabled={updateCurrentPassword && !currentPassword}
+                  ></input>
+                </div>
+              </div>
+            </div>
+          :
+            <div>
+              <div className="nameUserEmail">
+                <div>
+                  <label className="labell">Name</label>
+                  <input
+                    className='inputss'
+                    type='text'
+                    name='name'
+                    onChange={updateName}
+                    value={name}
+                    id="name"
+                  ></input>
+                </div>
+                <div>
+                  <label className="labell">User Name</label>
+                  <input
+                    className='inputss'
+                    type='text'
+                    name='username'
+                    onChange={updateUsername}
+                    value={username}
+                    id="username"
+                  ></input>
+                </div>
+                <div>
+                  <label className="labell">Email</label>
+                  <input
+                    type='text'
+                    name='email'
+                    onChange={updateEmail}
+                    value={email}
+                    className='inputss'
+                    id="email"
+                  ></input>
+                </div>
+              </div>
+              <div className="passwordsDiv">
+                {updateCurrentPassword
+                ?
+                  <div>
+                      <label className="labell">Current Password</label>
+                      <input
+                        type='password'
+                        name='current_password'
+                        onChange={updateCurrentPassword}
+                        value={currentPassword}
+                        className='inputss'
+                        id="currentPassword"
+                      ></input>
+                  </div>
+                :null
+                }
+                <div>
+                  {updateCurrentPassword
+                  ?
+                    <label className="labell">New Password</label>
+                  :
+                    <label className="labell">Password</label>
+                  }
+                  <input
+                    type='password'
+                    name='password'
+                    onChange={updateNewPassword}
                     value={newPassword}
                     className='inputss'
                     id="password"

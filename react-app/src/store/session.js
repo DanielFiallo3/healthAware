@@ -101,7 +101,7 @@ export const signUp = (username, name, email, password, profilePicFile, allergie
   })
   const vaccinationCard = (await vaccinationCardResponse.json()).url
 
-  // console.log("---------------------------------", geolocation, typeof(geolocation))
+  console.log("---------------------------------vax", vaccinationCard, 'prof', profilePic)
 
 
   const response = await fetch('/api/auth/signup', {
@@ -142,7 +142,7 @@ export const signUp = (username, name, email, password, profilePicFile, allergie
   const newprofilePicFormData = new FormData()
   newprofilePicFormData.append("image", newProfilePicFile)
   const newprofilePicResponse = await fetch('/api/images', {
-    method: 'PUT',
+    method: 'POST',
     body: newprofilePicFormData
   })
   const newProfilePic = (await newprofilePicResponse.json()).url
@@ -150,7 +150,7 @@ export const signUp = (username, name, email, password, profilePicFile, allergie
   const newVaccinationCardFormData = new FormData()
   newVaccinationCardFormData.append("image", newVaccinationCardFile)
   const newVaccinationCardResponse = await fetch('/api/images', {
-    method: 'PUT',
+    method: 'POST',
     body: newVaccinationCardFormData
   })
   const newVaccinationCard = (await newVaccinationCardResponse.json()).url

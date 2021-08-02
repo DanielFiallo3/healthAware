@@ -66,12 +66,24 @@ def sign_up():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         allergies=request.json["allergies"]
+        profilePic=form.data['profilePic']
+        vaccinationCard= form.data['vaccinationCard']
+
+        print("-------------------------------------------------------------------- VAXXX", type(vaccinationCard))
+        print("profilePic", type(profilePic))
+
+        if not vaccinationCard:
+            vaccinationCard = "https://bloximages.chicago2.vip.townnews.com/greenevillesun.com/content/tncms/assets/v3/editorial/9/f5/9f58c8e7-41c2-58d7-99a8-90bddda28675/60cc8afe6a1e0.image.png"
+        if not profilePic:
+            profilePic = "https://cdn.fakercloud.com/avatars/ehsandiary_128.jpg"
+
+
         user = User(
             username=form.data['username'],
             name=form.data['name'],
             email=form.data['email'],
-            profilePic= form.data['profilePic'],
-            vaccinationCard= form.data['vaccinationCard'],
+            profilePic= profilePic,
+            vaccinationCard= vaccinationCard,
             additionalDetails= form.data['additionalDetails'],
             currentSymptoms= form.data['currentSymptoms'],
             geolocation= form.data['geolocation'],
