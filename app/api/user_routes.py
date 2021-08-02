@@ -2,6 +2,8 @@ from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import User, db
 from app.forms import UpdateForm
+from werkzeug.security import generate_password_hash
+
 
 
 user_routes = Blueprint('users', __name__)
@@ -31,8 +33,11 @@ def updateProfile():
         # print(form, '-------------------------------------------2')
 
         if form.data['newPassword']:
+            print(form.data['newPassword'], '-------------------------------------------newpassw0rd', form.data['currentPassword'])
             if not current_user.check_password(form.data['currentPassword']):
                 return {'error': "Incorrect Password"}
+            else:
+                current_user.hashed_password = generate_password_hash(form.data['newPassword'])
 
         allergies=request.json["newAllergies"]
 
