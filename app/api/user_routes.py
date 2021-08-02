@@ -32,7 +32,7 @@ def updateProfile():
 
         if form.data['newPassword']:
             if not current_user.check_password(form.data['currentPassword']):
-                return {error: "Incorrect Password"}
+                return {'error': "Incorrect Password"}
 
         allergies=request.json["newAllergies"]
 

@@ -44,7 +44,6 @@ function User() {
 
   const onUpdateForm = (event) => {
     event.preventDefault()
-    setEditFalse()
     const newUsername = username
     const newName = name
     const newEmail = email
@@ -56,14 +55,18 @@ function User() {
     const newAllergies = allergies
     const newCurrentSymptoms = currentSymptoms
     
-
     
-
+    
+    
     if(newPassword === newRepeatPassword) {
+      console.log(newPassword, newRepeatPassword)
       dispatch(updatedUser({newUsername, newName, newEmail, newPassword, newRepeatPassword, newProfilePicFile, newVaccinationCardFile, newAdditionalDetails, newGeolocation, newAllergies, newCurrentSymptoms}))
+      .then(() => setEditFalse())
       .catch((data) => {
         setErrors(data)
       })
+    }else{
+      setErrors(["Passwords do not match"])
     }
   }
 
@@ -79,7 +82,7 @@ function User() {
     setEmail(e.target.value);
   };
 
-  const updatePassword = (e) => {
+  const updateNewPassword = (e) => {
     setNewPassword(e.target.value);
   };
 
@@ -228,7 +231,8 @@ function User() {
       <div>
         <div className="loginMasterDiv">
         <img className="loginLogo" src="https://i.imgur.com/RipAJxp.png" alt="logo.png"></img>
-          <UserForm onSubmit={onUpdateForm} setters={{errors, 
+          <UserForm onSubmit={onUpdateForm} setters={{
+              errors, 
               username, 
               name, 
               email, 
@@ -246,7 +250,7 @@ function User() {
               updateName,
               updateEmail,
               updateCurrentPassword,
-              updatePassword,
+              updateNewPassword,
               updateRepeatPassword,
               updateProfilePic,
               updateVaccinationCard,
@@ -263,7 +267,7 @@ function User() {
             :
             <div>
               <button type='button' className="fianlBtn3" disabled={true}>Delete User</button>
-              <p>*Demo User Not Allowed to be Deleted</p>
+              <p>*Demo User Name, Email and Password Not Allowed to be changed or deleted.</p>
             </div>
             }  
           </ UserForm >
