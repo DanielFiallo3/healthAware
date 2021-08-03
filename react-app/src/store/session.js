@@ -182,8 +182,8 @@ export const signUp = (username, name, email, password, profilePicFile, allergie
       return null;
     } else if (response.status < 500) {
       const data = await response.json();
-      if (data.errors) {
-        return data.errors;
+      if (data.error) {
+        throw data.error;
       }
     } else {
       return ['An error occurred. Please try again.']

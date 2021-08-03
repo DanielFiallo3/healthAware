@@ -35,7 +35,7 @@ def updateProfile():
         if form.data['newPassword']:
             print(form.data['newPassword'], '-------------------------------------------newpassw0rd', form.data['currentPassword'])
             if not current_user.check_password(form.data['currentPassword']):
-                return {'error': "Incorrect Password"}
+                return {'error': ["Incorrect Current Password"]}, 401
             else:
                 current_user.hashed_password = generate_password_hash(form.data['newPassword'])
 
