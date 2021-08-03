@@ -3,7 +3,7 @@ from app.models import db, Allergies
 
 # Adds a demo user, you can add other users here if you want
 def seed_allergies():
-    allergies = ["Peanuts", "Animal Dander", "Gluten", "Shellfish", "Dairy", "Pollen/Dust/Mold", "Other"]
+    allergies = ["Peanuts", "Animal Dander", "Gluten", "Shellfish", "Dairy", "Pollen/Dust/Mold"]
     listAlelrgies = [Allergies(name = allergy) for allergy in allergies]
 
     for each in listAlelrgies:

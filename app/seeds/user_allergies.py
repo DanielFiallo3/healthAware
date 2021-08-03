@@ -42,7 +42,7 @@ def seed_user_allergies():
   )
 
   bruce_user = User.query.get(6)
-  bruce_user_allergy = Allergies.query.get(7)
+  bruce_user_allergy = Allergies.query.get(4)
   bruceAllergy = User_Allergies(
     user = bruce_user,
     allergy = bruce_user_allergy,
@@ -50,7 +50,7 @@ def seed_user_allergies():
   )
 
   peter_user = User.query.get(7)
-  peter_user_allergy = Allergies.query.get(7)
+  peter_user_allergy = Allergies.query.get(1)
   peterAllergy = User_Allergies(
     user = peter_user,
     allergy = peter_user_allergy,
@@ -74,7 +74,7 @@ def seed_user_allergies():
   )
 
   ananya_user = User.query.get(10)
-  ananya_user_allergy = Allergies.query.get(7)
+  ananya_user_allergy = Allergies.query.get(3)
   ananyaAllergy = User_Allergies(
     user = ananya_user,
     allergy = ananya_user_allergy,
@@ -82,7 +82,7 @@ def seed_user_allergies():
   )
 
   vinny_user = User.query.get(11)
-  vinny_user_allergy = Allergies.query.get(7)
+  vinny_user_allergy = Allergies.query.get(6)
   vinnyAllergy = User_Allergies(
     user = vinny_user,
     allergy = vinny_user_allergy,
@@ -106,7 +106,7 @@ def seed_user_allergies():
   )
 
   ariana_user = User.query.get(14)
-  ariana_user_allergy = Allergies.query.get(7)
+  ariana_user_allergy = Allergies.query.get(2)
   arianaAllergy = User_Allergies(
     user = ariana_user,
     allergy = ariana_user_allergy,
@@ -138,7 +138,7 @@ def seed_user_allergies():
   )
 
   selly_user = User.query.get(18)
-  selly_user_allergy = Allergies.query.get(7)
+  selly_user_allergy = Allergies.query.get(4)
   sellyAllergy = User_Allergies(
     user = selly_user,
     allergy = selly_user_allergy,
