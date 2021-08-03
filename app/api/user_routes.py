@@ -28,7 +28,7 @@ def user(id):
 def updateProfile():
     form = UpdateForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print(form.validate_on_submit(), '((9999-------------------------------------------')
+    # print(form.validate_on_submit(), '((9999-------------------------------------------')
     if form.validate_on_submit():
         # print(form, '-------------------------------------------2')
 

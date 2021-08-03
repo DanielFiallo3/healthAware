@@ -69,8 +69,8 @@ def sign_up():
         profilePic=form.data['profilePic']
         vaccinationCard= form.data['vaccinationCard']
 
-        print("-------------------------------------------------------------------- VAXXX", type(vaccinationCard))
-        print("profilePic", type(profilePic))
+        # print("-------------------------------------------------------------------- VAXXX", type(vaccinationCard))
+        # print("profilePic", type(profilePic))
 
         if not vaccinationCard:
             vaccinationCard = "https://bloximages.chicago2.vip.townnews.com/greenevillesun.com/content/tncms/assets/v3/editorial/9/f5/9f58c8e7-41c2-58d7-99a8-90bddda28675/60cc8afe6a1e0.image.png"

@@ -132,7 +132,7 @@ function User() {
     }
   }
 
-  console.log(allergies,"======================================")
+  // console.log(allergies,"======================================")
 
   const updateSeverity = (allergy) => (e) => {
     setAllergies((prevAlergy) => {
