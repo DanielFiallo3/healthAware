@@ -313,6 +313,9 @@ function UserForm({ onSubmit,
                 onChange={updateProfilePic}
               // value={profilePic}
               ></input>
+              <p>
+                *If not added, will default"
+              </p>
             </div>
             <div>
               <label className="labell">Vaccination Card</label>
@@ -323,6 +326,9 @@ function UserForm({ onSubmit,
                 onChange={updateVaccinationCard}
               // value={vaccinationCard}
               ></input>
+              <p>
+                *If not added, will default"
+              </p>
             </div>
           </div>
           <br />
