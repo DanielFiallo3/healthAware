@@ -59,7 +59,7 @@ function User() {
     
     
     if(newPassword === newRepeatPassword) {
-      console.log(newPassword, newRepeatPassword)
+      // console.log(newPassword, newRepeatPassword)
       dispatch(updatedUser({newUsername, newName, newEmail, newPassword, newRepeatPassword, newProfilePicFile, newVaccinationCardFile, newAdditionalDetails, newGeolocation, newAllergies, newCurrentSymptoms, currentPassword}))
       .then(() => setEditFalse())
       .catch((data) => {

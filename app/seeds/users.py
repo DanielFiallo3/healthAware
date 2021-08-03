@@ -173,7 +173,7 @@ def seed_users():
             username='isabeld', 
             email='isabeldominugez@aa.io', 
             password='password', 
-            profilePic="https://scontent-ort2-2.xx.fbcdn.net/v/t1.6435-9/42738385_1673398402770895_8492024546130395136_n.jpg?_nc_cat=104&ccb=1-3&_nc_sid=174925&_nc_ohc=DmZQANGUor0AX9UlNdd&_nc_ht=scontent-ort2-2.xx&oh=28cf84ec6aa3ebae65065dd154f53512&oe=60ED7E58", 
+            profilePic="https://images.freeimages.com/images/large-previews/14a/krishna-murti-1442708.jpg", 
             vaccinationCard="https://bloximages.chicago2.vip.townnews.com/greenevillesun.com/content/tncms/assets/v3/editorial/9/f5/9f58c8e7-41c2-58d7-99a8-90bddda28675/60cc8afe6a1e0.image.png",
             additionalDetails="I would like to increase my energy levels and eat healthier.",
             currentSymptoms="None", 
