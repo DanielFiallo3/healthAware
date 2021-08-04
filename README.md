@@ -28,4 +28,6 @@ Fill out the Form Fields (Name, Username, Email, and Password) are required and 
 ## Demo The site
 To Demo first click on Demo Login button this will log you in with a Demo User to explore.\
 ![Demo](https://im4.ezgif.com/tmp/ezgif-4-12400a4ed82c.gif)\
-\
+
+## Going to Profile Page and Map
+![Functionality](https://im4.ezgif.com/tmp/ezgif-4-9e0b112964cd.gif)\
