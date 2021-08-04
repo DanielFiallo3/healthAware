@@ -23,7 +23,7 @@ To Start first click on New User? button.\
 ![New User](https://im3.ezgif.com/tmp/ezgif-3-53a9cb67e0ff.gif)\
 \
 Fill out the Form Fields (Name, Username, Email, and Password) are required and (Geolocation, Profile Picture, and Vaccination) will default if none are presented. Then click Sign Me Up\
-![New User](https://raw.githubusercontent.com/ahans1607/healthAware/main/pics/Screen%20Shot%202021-08-04%20at%204.12.45%20PM.png)\
+![New User](https://raw.githubusercontent.com/ahans1607/healthAware/main/pics/Screen%20Shot%202021-08-04%20at%204.12.45%20PM.png)
 
 
 ## Demo The site
