@@ -20,8 +20,10 @@ Health aware is a self concept but derived from several apps already exisiting. 
 
 ## Welcome New User!
 To Start first click on New User? button.\
-![New User](https://im3.ezgif.com/tmp/ezgif-3-53a9cb67e0ff.gif)
+![New User](https://im3.ezgif.com/tmp/ezgif-3-53a9cb67e0ff.gif)\
+\
+Fill out the Form Fields (Name, Username, Email, and Password) are required and (Geolocation, Profile Picture, and Vaccination) will default if none are presented.
 
 
 
-##Demo The site
+## Demo The site
