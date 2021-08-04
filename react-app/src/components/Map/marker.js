@@ -31,7 +31,7 @@ return(
                  
                     {showInfoWindow && <InfoWindow
                     className="InfoWindow"
-                        position={user.geolocation}>
+                    position={ChangeUserPos(user.geolocation)}>
                         <div className="theBOX">
                             <h3>{user.name}</h3>
                             <img src={user.profilePic} alt="proPic" className="markerProf"></img>
