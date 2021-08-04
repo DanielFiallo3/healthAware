@@ -33,7 +33,7 @@ def updateProfile():
         # print(form, '-------------------------------------------2')
 
         if form.data['newPassword']:
-            print(form.data['newPassword'], '-------------------------------------------newpassw0rd', form.data['currentPassword'])
+            # print(form.data['newPassword'], '-------------------------------------------newpassw0rd', form.data['currentPassword'])
             if not current_user.check_password(form.data['currentPassword']):
                 return {'error': ["Incorrect Current Password"]}, 401
             else:
@@ -50,7 +50,8 @@ def updateProfile():
             current_user.profilePic=form.data['newProfilePic']
         if form.data['newVaccinationCard']:
             current_user.vaccinationCard=form.data['newVaccinationCard']
-        current_user.geolocation=form.data['newGeolocation']
+        if form.data['newGeolocation']:
+            current_user.geolocation=form.data['newGeolocation']
         current_user.currentSymptoms=form.data['newCurrentSymptoms']
         current_user.additionalDetails=form.data['newAdditionalDetails']
 
