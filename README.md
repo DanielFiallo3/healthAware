@@ -19,8 +19,8 @@ Health aware is a self concept but derived from several apps already exisiting. 
 
 
 ## Welcome New User!
-To Start first click on New User? button.
-![RappaMappa at a glance](https://im3.ezgif.com/tmp/ezgif-3-53a9cb67e0ff.gif)
+To Start first click on New User? button.\
+![New User](https://im3.ezgif.com/tmp/ezgif-3-53a9cb67e0ff.gif)
 
 
 
