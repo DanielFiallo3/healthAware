@@ -1,7 +1,7 @@
 # Welcome to Health Aware 
 *By Ananya Hans - [Visit Health Aware](https://health-aware.herokuapp.com/)*
 
-## Would you like to be a [New User](#welcome-new-user) or [Demo]()?
+## Would you like to be a [New User](#welcome-new-user) or [Demo](#demo-the-site)?
 
 
 ### What is Health Aware?
@@ -19,5 +19,9 @@ Health aware is a self concept but derived from several apps already exisiting. 
 
 
 ## Welcome New User!
-To Start first click on 
+To Start first click on New User? button.
+![RappaMappa at a glance](https://im3.ezgif.com/tmp/ezgif-3-53a9cb67e0ff.gif)
 
+
+
+##Demo The site
