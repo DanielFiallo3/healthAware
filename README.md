@@ -3,7 +3,6 @@
 
 ## Would you like to be a [New User](#welcome-new-user) or [Demo](#demo-the-site)?
 
-
 ### What is Health Aware?
 Health aware is a self concept but derived from several apps already exisiting. The basis is that as a person can sign-up as a User which takes in Allergies and other health related questions as well a geolocation. On the basis of those filled fields a User will be brought to a map where you can Users in your vicinity and be aware of others health. 
 
@@ -27,3 +26,6 @@ Fill out the Form Fields (Name, Username, Email, and Password) are required and 
 
 
 ## Demo The site
+To Demo first click on Demo Login button this will log you in with a Demo User to explore.\
+![Demo](https://im4.ezgif.com/tmp/ezgif-4-12400a4ed82c.gif)\
+\
